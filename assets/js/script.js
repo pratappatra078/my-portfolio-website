@@ -1,16 +1,25 @@
-console.log("Script is running .....")
-document.querySelector('.cross').style.display = 'none';
-document.querySelector('.hamberger').addEventListener("click",()=>{
-    document.querySelector('.sidebar').classList.toggle('sidebarGo');
-    if(document.querySelector('.sidebar').classList.contains('sidebarGo')){
-        document.querySelector('.ham').style.display='inline';
-        document.querySelector('.cross').style.display='none';
-    }
-    else{
-        document.querySelector('.ham').style.display='none';
+console.log("Script is running .....");
+
+/* save all input */ 
+const sidebar = document.querySelector(".sidebar");
+const hamberger = document.querySelector(".hamberger");
+const ham = document.querySelector(".ham");
+const cross = document.querySelector(".cross");
+
+/* initial state */
+cross.style.display = "none";
+hamberger.addEventListener("click",()=>{
+    sidebar.classList.toggle("sidebarGo");
+
+    const isclosed = sidebar.classList.contains("sidebarGo");
+
+    if(isclosed){
+        ham.style.display = "inline";
+        cross.style.display = "none";
+    }else{
+        ham.style.display = "none";
         setTimeout(() => {
-            document.querySelector('.cross').style.display='inline';
-            
-        }, 350);
+            cross.style.display = "inline";
+        }, 300);
     }
 })

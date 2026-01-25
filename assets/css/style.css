@@ -1,243 +1,91 @@
-*{
+*,
+*::before,
+*::after{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #111;
+    background-color: #fff;
 }
 .sidebar{
-    position: absolute;
-    background-color: rgb(221, 217, 217);
-    font-family: "Baloo Bhai 2", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 200px;
-    transition: transform 0.3s ease-in;
-}
-.sidebar nav{
-    padding: 11px;
     height: 100vh;
+    background-color: #ddd;
+    padding: 1rem;
+}
+.sidebarGo{
+    transform: translateX(-100%);
+}
+main{
+    margin-left: 200px;
+    padding: 1.5rem;
+}
+.sidebar nav ul{
+    list-style: none;
 }
 .sidebar nav li{
-    list-style: none;
-    font-size: 17px;
-    padding: 21px;
+    margin-bottom: 1rem;
 }
-.sidebar nav li a{
+.sidebar nav a{
     text-decoration: none;
-    color: black;
+    color: #000;
+    font-weight: 500;
 }
-.main{
-    /* background-color: yellow; */
-    width: 90vw;
+.sidebar nav a.active{
+    text-decoration: underline;
 }
-
-.container{
-    display: flex;
+.btn{
+    display: inline-block;
+    padding: 0.6rem 1.2rem; 
+    border-radius: 20px;   
+    background-color: #375daa;
+    color: #fff;
+    text-decoration: none;
+    font-size:1rem;
 }
-.inFoContainer{
-    /* background-color: greenyellow; */
-    margin: 72px auto;
-    height: 70vh;
-    width: 80vw;
-    display: flex;
-    justify-content: space-around;
-    font-family: "Cookie", cursive;
-}
-.hello{
-    font-size: 65px;
-}
-.name{
-    font-size: 55px;
-    font-weight: bold;
-}
-.about{
-    font-size: 40px;
-}
-.moreabout{
-    margin-top: 20px;
-    font-size: 22px;
+.btn:hover{
+    background-color: #fff;
+    color: #375daa;
+    border: 1px solid #375daa;
 }
 
-.download-button{
-   margin-top: 30px;
+@media (max-width:768px){
+    .sidebar{
+        transform: translateX(-100%);
+    }
+    main{
+        margin-left: 0;
+        padding-top:2rem;
+    }
+    
 }
-.download-button button{
-    color: white;
-    background-color: rgb(55, 93, 170);
-    border-radius: 22px;
-    padding: 8px 8px;
-    margin: 0px 3px;
-    cursor: pointer;
-}
-.download-button :hover{
-    color: blue;
-    background-color: white;
-}
-.devInfo{
+.hero{
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.devPic img{
-    height: 70vh;
-}
-
-
-
-
-/* style for contact page  */
-.form-group small{
-    display: block;
-}
-.form-control{
-    display: flex;
-    width: 460px;
-    border-radius: 4px;
-    height: 29px;
-}
-.form-control:hover{
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-}
-.contact-form{
-    padding: 26px 371px;
-    padding-top: 70px;
-    font-family: "Source Code Pro", monospace;
-    font-size: 19px;
-}
-.contact-form h1{
-    /* text-align: center; */
-    padding-bottom: 15px;
-}
-.form-group{
-    padding: 8px 0px;
-}
-.btn{
-    border-radius: 17px;
-    width: 89px;
-    margin: 18px 199px;
-    align-items: center;
-    height: 34px;
-}
-.btn:hover{
-    color: black;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-}
-
-/* */
-.blog-container{
-    font-family: "Source Code Pro", monospace;
-    padding: 10px 20px;
-    padding-bottom: 20px;
-}
-#headline{
-    text-align: center;
-    padding: 10px;
-}
-.para{
-    padding-top: 20px;
-}
-.blog-container ul{
-    list-style-position: in;
-}
-.horizontal-line{
-    height: 2px;
-    width: 100%;
-    background: #000;
-    margin: 12px 0;
-}
-
-
-
-
-
-/*Aabout me Page*/
-.main{
-    padding: 16px;
-}
-.main header {
+    gap: 0.8rem;
     text-align: center;
 }
-.main footer{
-    text-align: center;
+.hero h1{
+    font-size: clamp(2rem,5vw,3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
 }
-#main-para p{
-    font-size: 19px;
+.subtitle{
+    font-size: clamp(1rem,2.5vw,1.3rem);
+    color: #555;
+    max-width: 600px;
 }
-.main section{
-    font-size: 18px;;
-}
-.skills-tools{
-    list-style-position: inside;
-}
-.blank-space{
-    height: 10px;
-    width: 100%;
-    border: none;
-    margin: 12px;
-}
-.skillsitem{
-    height: 5px;
-    width: 300px;
-    background-color: blue;
-    border-radius: 5px;
-    margin-left: 20px;
-    margin-top: 6px;
-}
-.first{
-    background-color: green;
-     width: 300px;
-}
-.second{
-    background-color: red;
-     width: 260px;
-}
-.third{
-     width: 200px;
-}
-.fourth{
-    background-color: rgb(118, 4, 4);
-     width: 210px;
-}
-.fifth{
-    background-color: rgb(139, 2, 244);
-     width: 230px;
-}
-.cross{
-    margin-left: 122px;
-}
-.sidebarGo{
-        transform: translate(-443px,0px);
-        position: absolute;
-}
-
-.hamberger{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-}
-@media  (max-width: 921px){
-    *{
-        /* background-color: red; */
-        
-    }
-    .devPic{
-        display: none;
-    }
-    /* .sidebar{
-        transform: translate(-443px,0px);
-        position: absolute;
-    } */
-     .contact-form{
-        padding: 6px 6px;
-        padding-top: 70px;
-        font-family: "Source Code Pro", monospace;
-        font-size: 19px;
-     }
-     .form-control {
-        display: flex;
-        width: 200px;
-        border-radius: 4px;
-        height: 19px;
-    }
-    .hello{
-        padding-top: 40px;
-        font-size: 15px;
+@media (min-width:768px){
+    .hero{
+        text-align: left;
     }
 }
