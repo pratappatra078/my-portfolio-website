@@ -46,3 +46,15 @@ let letter ="";
         setTimeout(type,100); // typing speed
     }
 })();
+
+/*Theme toggle */
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+themeToggle.addEventListener("click",()=>{
+    body.classList.toggle("dark-mode");
+    if(body.classList.contains("dark-mode")){
+        themeToggle.innerText = "☀️ Light Mode";
+    }else{
+        themeToggle.innerText = "🌙 Night Mode";
+    }
+});
