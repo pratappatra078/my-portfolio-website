@@ -18,10 +18,25 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 220px;
     height: 100vh;
-    background-color: #ddd;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    /* background-color: #ddd; */
+    transition: transform 0.3s ease;
     padding: 1rem;
+}
+.typewriter{
+    color: var(--accent);
+    font-weight: 600;
+    border-right: 2px solid var(--accent);
+    padding-right: 5px ;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    50% {border-color: transparent;}
 }
 .sidebarGo{
     transform: translateX(-100%);
@@ -87,7 +102,7 @@ main{
     align-items: center;
     min-height: 80vh;
 }
-.hero hero-img{
+.hero .hero-img{
     width: 250px;
     border-radius: 50%;
     background: #f1f5ff;
