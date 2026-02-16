@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    --bg-color: rgba(176, 205, 187, 0.058);
-    --sidebar-bg: rgba(182, 198, 223, 0.95);
-    --text-primary: #004eb5;
+    --bg-color: #0F172A;
+    --sidebar-bg: #1E293B;
+    --text-primary: #F1F5F9;
     --text-secondary: #94a3b8;
     --accent-color: #38bdf8; /* Cyan */
     --accent-glow: #38bdf880;
