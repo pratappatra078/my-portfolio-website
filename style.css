@@ -81,3 +81,8 @@ p{ max-width: 600px;margin: 0 auto 20px auto; font-size: 1.2rem;}
     flex-wrap: wrap;
     justify-content: center;
 }
+#dev-image{
+    height: 9rem;
+    /* width: 9rem; */
+    border-radius: 50%;
+}
