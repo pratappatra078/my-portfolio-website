@@ -11,23 +11,24 @@ html{
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
+    background-color: #0f172a; /* dark blue*/
+    color: #ffffff;
     /* Add Padding to top so content is not hidden behind the flex nav */
     padding-top: 60px;
 }
 /* Navigation bar style and make it fixed */
 .navbar{
     position:fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #2c3e50;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.05);
+    padding: 10px 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it to stay in the top */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    gap: 20px;
+    border: 2px solid black;
 }
 .navbar a{
     color: white;
@@ -51,11 +52,23 @@ section{
     text-align: center;
 }
 /* alternating color for visual representation */
-#home{ background-color: #ecf0f1;}
+#home{ 
+    /* background-color: #ecf0f1; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; */
+}
 #about {background-color: #bdc3c7;}
 #blog {background-color: #ecf0f1;}
 #contact {background-color: #2c3e50; color: white;}
-h1{ margin-bottom: 20px;font-size: 3rem;}
+h1{ 
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 700;
+}
 p{ max-width: 600px;margin: 0 auto 20px auto; font-size: 1.2rem;}
 /* contact form styling */
 .contact-form input, .contact-form textarea{
@@ -82,7 +95,15 @@ p{ max-width: 600px;margin: 0 auto 20px auto; font-size: 1.2rem;}
     justify-content: center;
 }
 #dev-image{
-    height: 9rem;
-    /* width: 9rem; */
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+#dev-image:hover{
+    box-shadow: 0 0 40px rgba(237, 229, 21, 0.2);
+}
+.highlight{
+    color:#ff2e63;
 }
