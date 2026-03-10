@@ -1,3 +1,12 @@
+:root{
+    --bg: #060a12;
+    --surface: #0d1424;
+    --accent: #00f5c4;
+    --accent2: #ff2e63;
+    --text: #e8eaf0;
+    --muted: #6b7a99;
+    --border: rgba(255,255,255,0.07);
+}
 /* Reset & Basic style*/
 *{
     margin: 0;
@@ -9,12 +18,13 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg); /* dark blue*/
+    color: var(--text);
     line-height: 1.6;
-    background-color: #0f172a; /* dark blue*/
-    color: #ffffff;
     /* Add Padding to top so content is not hidden behind the flex nav */
-    padding-top: 60px;
+    padding-top: 0;
+    overflow-x: hidden;
 }
 /* Navigation bar style and make it fixed */
 .navbar{
