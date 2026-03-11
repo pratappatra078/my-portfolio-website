@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Pratap Patra | Full Stack Developer & Engineer</title>
-    <link  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" >
 </head>
 <body>
     <nav class="navbar">
@@ -14,6 +14,7 @@
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
     </nav>
+
     <!-- HOME -->
     <section id="home">
         <img id="dev-image" src="/display picture.png" alt="Pratap Patra">
@@ -30,32 +31,56 @@
         </div>
     </section>
     <section id="about">
-        <h1>About Me</h1>
-        <p>I build websites that are fast,secure & easy to use .</p>
-        <p>With a passion for modern Design and clean code, I turn ideas into reality.</p>
+        <p class="section-label reveal">Who I am</p>
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="about-body reveal">
+            I build website that are fast,secure &amp; easy to use,with a passion for modern design and clean code , I turn ideas into polish , production-ready products.
+        </p>
+        <div class="skill-grid reveal">
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">Javascript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Rest APIs</span>
+        </div>
     </section>
+
+    <!-- BLOG -->
     <section id="blog">
-        <h1>Latest Blog Posts</h1>
-        <div class="blog-section">
-            <div>
+        <p class="section-label reveal">Writing </p>
+        <h2 class="section-title reveal">Latest Posts</h2>
+        <div class="blog-grid reveal">
+            <div class="blog-card">
+                <span class="blog-tag">Beginner</span>
                 <h3>How To Learn HTML</h3>
-                <p>A guide to starting your web journey .</p>
+                <p>A Practical guide to starting your web journey and understanding the building blocks of the internet.</p>
+                <span class="read-more">Read More</span>
             </div>
-            <div>
-                <h3>CSS grid vs Gridbox </h3>
-                <p>Which one should you use and when ?</p>
+            <div class="blog-card">
+                <span class="blog-tag">CSS</span>
+                <h3>Grid vs Flexbox </h3>
+                <p>Which layer model should you reach for,when ? A clean breakdown with real-world examples.</p>
+                <span class="read-more">Read More</span>
             </div>
         </div>
     </section>
+
+    <!-- CONTACT -->
     <section id="contact">
-        <h1>Contact Me</h1>
-        <p>Have a project in mind ? Let's talk!</p>
-        <div class="class-form">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea rows="5" placeholder="Your Message "></textarea>
-            <button>Send Message</button>
+        <p class="section-label reveal">Get In Touch</p>
+        <h2 class="section-title reveal">Contact Me</h2>
+        <p class="reveal" style="color: var(--muted);margin-bottom: 8px;">Have a project in mind? Let's talk.</p>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button>Send message</button>
         </div>
     </section>
+
+    <footer>
+        Crafted with <span>♥</span> by Pratap Patra &nbsp;.&nbsp;2026
+    </footer>
 </body>
 </html>
