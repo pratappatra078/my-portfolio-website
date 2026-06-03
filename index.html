@@ -1,87 +1,73 @@
 <!DOCTYPE html>
-<html lang="en"data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratap | Portfolio </title>
     <link rel="stylesheet" href="style.css">
-    <title>Pratap Patra | Full Stack Developer & Engineer</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" >
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">about</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
-    <!-- HOME -->
-    <section id="home">
-        <img id="dev-image" src="/display picture.png" alt="Pratap Patra">
-        <h1 class="home-title">
-            Hi, I'm <span class="highlight">Pratap</span><br>
-            <span class="dim">Patra</span>
-        </h1>
-        <p class="home-sub">
-            <span></span>Full Stack Developer & Engineer <span></span>
-        </p>
-        <div class="btn-row">
-            <a href="#contact" class="btn btn-primary">Work with Me</a>
-            <a href="#about" class="btn btn-ghost">Learn More</a>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section-label reveal">Who I am</p>
-        <h2 class="section-title reveal">About Me</h2>
-        <p class="about-body reveal">
-            I build website that are fast,secure &amp; easy to use,with a passion for modern design and clean code , I turn ideas into polish , production-ready products.
-        </p>
-        <div class="skill-grid reveal">
-            <span class="skill-tag">HTML & CSS</span>
-            <span class="skill-tag">Javascript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">Rest APIs</span>
-        </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog">
-        <p class="section-label reveal">Writing </p>
-        <h2 class="section-title reveal">Latest Posts</h2>
-        <div class="blog-grid reveal">
-            <div class="blog-card">
-                <span class="blog-tag">Beginner</span>
-                <h3>How To Learn HTML</h3>
-                <p>A Practical guide to starting your web journey and understanding the building blocks of the internet.</p>
-                <span class="read-more">Read More</span>
+    <header>
+        <nav>
+            <p>Pratap Patra</p>
+            <ul>
+                <li>Blogs</li>
+                <li>Paperself</li>
+                <li>Bookself</li>
+                <li>Talks</li>
+                <li>Contact</li>
+                <li><span id="theme-toggle">☀️</span></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Hey,I am Pratap </h2>
+        <h3>Engineering,database & System . always building </h3>
+        <!-- <img src="Pratap.png" alt=""> -->
+        <article>
+            <p>
+                A Web Designer and Full-Stack Developer passionate about building modern, visually engaging, and user-focused digital experiences.
+            </p>
+            <p>
+                I work across the full development stack, from crafting intuitive frontend interfaces to building robust backend systems, APIs, and database architectures. I follow industry best practices such as version control, agile workflows, and CI/CD pipelines to deliver high-quality, maintainable, and performant solutions.
+            </p>
+            <p>
+                I have a strong sense of design and believe great digital products are built at the intersection of aesthetics, usability, and engineering. I enjoy continuous learning, solving complex problems, and transforming ideas into impactful digital solutions.
+            </p>
+        </article>
+        <ul>
+            <button> Youtube </button>
+            <button> Twitter </button>
+            <button> LinkedIn </button>
+            <button> GitHub </button>
+        </ul>
+        <div class="recent-articles">
+            <div class="recent-blogs">
+                <h3>Recent Blog Posts .</h3>
+                <h4>Things I Have written recently : </h4>
+                <ul>
+                    <li>HTML - br,hr,comment,sementic tag ...</li>
+                    <li>HTML - tags,link,doc-type,head,body ,heading..</li>
+                    <li>HTML - history,tag,why need in web-dev ...</li>
+                    <li>HTML - Anchor tags, img, audio, video, absolute vs relative paths ... </li>
+                    <li>HTML - ul, ol, li, table, tr, td, th, colspan, rowspan ...</li>
+                </ul>
             </div>
-            <div class="blog-card">
-                <span class="blog-tag">CSS</span>
-                <h3>Grid vs Flexbox </h3>
-                <p>Which layer model should you reach for,when ? A clean breakdown with real-world examples.</p>
-                <span class="read-more">Read More</span>
+            <div class="recent-paper">
+                <h3>Recent Papers</h3>
+                <h4>Paper I have Read Recently : </h4>
+                <ul>
+                    <li>C/C++ Threads safety analysis ...</li>
+                    <li>Java garbage collector ..</li>
+                    <li>CSS flexbox ...</li>
+                    <li>Asynchronous JavaScript </li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <p class="section-label reveal">Get In Touch</p>
-        <h2 class="section-title reveal">Contact Me</h2>
-        <p class="reveal" style="color: var(--muted);margin-bottom: 8px;">Have a project in mind? Let's talk.</p>
-        <div class="contact-form">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <textarea rows="5" placeholder="Your Message"></textarea>
-            <button>Send message</button>
-        </div>
-    </section>
-
+    </main>
     <footer>
-        Crafted with <span>♥</span> by Pratap Patra &nbsp;.&nbsp;2026
+        © Pratap Patra, 2026
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
