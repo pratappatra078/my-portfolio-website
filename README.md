@@ -1,3 +1,12 @@
+v1.2.1
+- nav bar & main section width matched ( 1200 px)
+- about me some paragraph add in the home page
+- text colour changed
+- image add,height , width fixed
+- background colour fixed
+- button shapes are changed
+- hover effect add on nav bar
+
 v1.2.0
 - Style: complete interface change 
 - Make interface more minimal and add new section 
