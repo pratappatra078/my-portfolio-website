@@ -31,7 +31,22 @@ body {
   /* transition: 0.3s; */
   font-family: "Assistant",sans-serif;
 }
-
+/* ----- light mode css --------*/
+body.light-mode{
+  --bg:#f8fafc;
+  --nav-bg:#ffffff;
+  --text:#1e293b;
+  --text-muted:#0f73ff;
+  --card-border:#e2e8f0;
+  --btn-border:#cbd5e1;
+  --footer-bg:#0f172a;
+}
+body.light-mode nav ul li{
+  color: #1e293b;
+}
+body.light-mode nav p{
+  color: #2563eb;
+}
 /* body.dark-mode {
   background-color: #1a1a1a;
   color: #e8e8e8;
@@ -121,7 +136,7 @@ main h2 {
   font-family: "Lora";
   font-size: 3.5rem;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: var(--text);
   font-weight: 700;
 }
 main > h3 {
@@ -136,7 +151,7 @@ article {
 }
 article p {
   margin-bottom: 18px;
-  color: #cccccc;
+  color: var(--text);
 }
 
 /* Social button */
@@ -200,7 +215,7 @@ main ul button:hover {
 .recent-blogs li,
 .recent-paper li {
   margin: 10px;
-  color: #475569;
+  color: var(--text-muted);
 }
 /* Footer */
 footer {

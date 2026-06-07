@@ -1,24 +1,26 @@
 /* ── THEME TOGGLE with localStorage ── */
 const themeToggle = document.getElementById('theme-toggle');
 
-// check saved theme 
-if(localStorage.getItem("theme")=== "dark"){
-    document.body.classList.add("dark-mode");
-    themeToggle.textContent = "☀️";
+// on load - apply saved preference 
+const saved = localStorage.getItem("theme");
+if(saved === 'light'){
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "🌙"; // show moon to switch dark 
 }
 else{
-    themeToggle.textContent = "🌙";
+    themeToggle.textContent = "🌙"; // show sun to switch to light mode
 }
 
-// toggle theme 
-themeToggle.addEventListener("click",()=>{
-    document.body.classList.toggle("dark-mode");
+// on click - toggle 
 
-    if(document.body.classList.contains("dark-mode")){
-        localStorage.setItem("theme","dark");
-        themeToggle.textContent = "🌙";
-    }else{
+themeToggle.addEventListener("click",()=>{
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
         localStorage.setItem("theme","light");
-        themeToggle.textContent = "☀️";
+        themeToggle.textContent = "🌙"; // now in day mode , show moon to switch in night mode
+    }else{
+        localStorage.setItem("theme","dark");
+        themeToggle.textContent = "☀️"; // now in dark mode , show sun to switch in day mode
     }
 });
