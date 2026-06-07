@@ -1,5 +1,4 @@
 v1.2.2
-<<<<<<< HEAD
 - Function: day - night mode button function add 
 
 v1.2.1
