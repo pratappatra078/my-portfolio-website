@@ -1,3 +1,5 @@
+v1.2.1
+- Function: day - night mode button function add 
 v1.2.0
 - Style: complete interface change 
 - Make interface more minimal and add new section 
