@@ -1,7 +1,8 @@
 v1.2.2
 <<<<<<< HEAD
 - Function: day - night mode button function add 
-=======
+
+v1.2.1
 - nav bar & main section width matched ( 1200 px)
 - about me some paragraph add in the home page
 - text colour changed
