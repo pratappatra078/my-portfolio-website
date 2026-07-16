@@ -1,115 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratap | Portfolio </title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>Pratap Patra | CSE Student & Software Developer</title>
+  <meta name="description" content="Pratap Patra — 3rd Year B.Tech CSE student passionate about software development, DSA, full-stack web development, and building impactful projects. Available for internships.">
+  <meta name="author" content="Pratap Patra">
+  <meta name="keywords" content="Pratap Patra, Portfolio, CSE Student, Software Developer, Web Developer, Full Stack, DSA, JavaScript, Python, Java, C++">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pratappatra.netlify.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Pratap Patra | CSE Student & Software Developer">
+  <meta property="og:description" content="3rd Year B.Tech CSE student passionate about software development, DSA, and building impactful projects.">
+  <meta property="og:url"         content="https://pratappatra.netlify.app/">
+  <meta property="og:image"       content="https://pratappatra.netlify.app/Pratap.png">
+  <meta property="og:site_name"   content="Pratap Patra Portfolio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Pratap Patra | CSE Student & Software Developer">
+  <meta name="twitter:description" content="3rd Year B.Tech CSE student passionate about software development, DSA, and building impactful projects.">
+  <meta name="twitter:image"       content="https://pratappatra.netlify.app/Pratap.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="theme-color" content="#6366f1">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <p>Pratap Patra</p>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Skills</li>
-                <li>Project</li>
-                <li>Contact</li>
-                <li><span id="theme-toggle">☀️</span></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Skip to main content -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <main>
-        <h2>Hey,I am Pratap </h2>
-        <h3>Engineering , database & System . always building </h3>
-        <div class="container">
-            <div class="left-text-container">
-                <article>
-                    <p>
-                        Hi, I'm Pratap Patra, a passionate B.Tech Computer Science Student with a strong interest in
-                        software
-                        development , problem-solving , and emerging technologies.I enjoy learning new programming
-                        concepts and
-                        continuously improving my skills in <b> Python,C/C++,Data Structure & Algorithms , Web
-                            Development ,
-                            AI/ML and cloud Computing.</b>
-                    </p>
-                    <p>
-                        I believe in consistent learning , hands-on practices , and building real-world projects that
-                        create
-                        meaningful impact. My goal is to become a highly skilled software engineer and secure a top
-                        technology
-                        role while continuously growing as a developer.
-                    </p>
-                    <p>
-                        When I'm not coding , I spend my time exploring new technologies , solving coding challenges ,
-                        and working on project that help me learn somthing new everyday.
-                    </p>
-                    <p>
-                        Me as a Web Designer and Full-Stack Developer passionate about building modern, visually
-                        engaging, and
-                        user-focused digital experiences.
-                    </p>
-                    <p>
-                        I work across the full development stack, from crafting intuitive frontend interfaces to
-                        building robust
-                        backend systems, APIs, and database architectures. I follow industry best practices such as
-                        version
-                        control, agile workflows, and CI/CD pipelines to deliver high-quality, maintainable, and
-                        performant
-                        solutions.
-                    </p>
-                    <p>
-                        I have a strong sense of design and believe great digital products are built at the intersection
-                        of
-                        aesthetics, usability, and engineering. I enjoy continuous learning, solving complex problems,
-                        and
-                        transforming ideas into impactful digital solutions.
-                    </p>
+  <!-- ── Loading Screen ── -->
+  <div class="loader" role="status" aria-label="Loading page">
+    <div class="loader__inner">
+      <div class="loader__logo">Loading Page ...</div>
+      <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ── Custom Cursor ── -->
+  <div class="cursor"          aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ── Scroll Progress ── -->
+  <div class="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Pratap Patra — Home">Pratap Patra</a>
+
+      <ul class="navbar__links" role="list" aria-label="Navigation links">
+        <li><a href="index.html"    class="navbar__link" aria-label="Home">Home</a></li>
+        <li><a href="projects.html" class="navbar__link" aria-label="Projects">Projects</a></li>
+        <li><a href="blog.html"     class="navbar__link" aria-label="Blog">Blog</a></li>
+        <li><a href="about.html"    class="navbar__link" aria-label="About Me">About Me</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="navbar__theme" id="theme-toggle" aria-label="Switch to light mode" title="Toggle theme">🌙</button>
+        <button class="navbar__hamburger" id="hamburger"
+                aria-expanded="false" aria-label="Open navigation menu" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ── -->
+  <div class="navbar__mobile" id="mobile-menu" aria-label="Mobile navigation menu" aria-hidden="true">
+    <a href="index.html"    class="navbar__mobile-link">🏠 Home</a>
+    <a href="projects.html" class="navbar__mobile-link">💻 Projects</a>
+    <a href="blog.html"     class="navbar__mobile-link">📝 Blog</a>
+    <a href="about.html"    class="navbar__mobile-link">👤 About Me</a>
+  </div>
+
+  <!-- main content -->
+  <main id="main-content">
+    <!-- ── HERO ── -->
+    <section class="hero" id="hero" aria-label="Hero — Introduction">
+      <div class="hero__blobs" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero__grid">
+
+          <!-- Content -->
+          <div class="hero__content">
+            <div class="hero__eyebrow">
+              <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+              Open to Internships &amp; Opportunities · 2026
             </div>
-            <div class="right-image-container">
-                <img src="Pratap.png" alt="">
+
+            <h1 class="hero__headline">
+              Hi, I'm <br><span class="name">Pratap Patra</span>
+            </h1>
+
+            <div class="hero__typed-wrap" aria-live="polite" aria-atomic="true">
+              <span style="color:var(--color-text-2);">I'm a</span>
+              <span class="hero__typed" id="typed-text" aria-label="Typing animation">CSE Student</span>
+              <span class="typed-cursor" aria-hidden="true"></span>
             </div>
+
+            <p class="hero__desc">
+              A 3rd-year <strong>B.Tech Computer Science Engineering</strong> student passionate
+              about <strong>software development</strong>, <strong>data structures &amp; algorithms</strong>,
+              and building full-stack solutions that create real-world impact.
+            </p>
+
+            <div class="hero__cta">
+              <a href="Pratap Patra Resume.pdf" download class="btn btn--primary btn--lg"
+                 aria-label="Download Pratap Patra's resume PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download Resume
+              </a>
+              <a href="projects.html" class="btn btn--outline btn--lg" aria-label="View my projects">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="m8 21 4-4 4 4"/><path d="M12 17v4"/>
+                </svg>
+                View Projects
+              </a>
+              <a href="about.html" class="btn btn--ghost btn--lg" aria-label="Contact me">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Contact Me
+              </a>
+            </div>
+
+            <div class="hero__stats" aria-label="Key statistics">
+              <div class="hero__stat">
+                <div class="hero__stat-value" data-count="15" data-suffix="+">15+</div>
+                <div class="hero__stat-label">Projects Built</div>
+              </div>
+              <div class="hero__stat">
+                <div class="hero__stat-value" data-count="6" data-suffix="+">6+</div>
+                <div class="hero__stat-label">Languages</div>
+              </div>
+              <div class="hero__stat">
+                <div class="hero__stat-value">3rd</div>
+                <div class="hero__stat-label">Year CSE</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="hero__image-wrap" aria-hidden="true">
+            <div class="hero__image-ring">
+              <div class="hero__image-ring-dot"></div>
+            </div>
+            <div class="hero__image-frame">
+              <img src="Pratap.png"
+                   alt="Pratap Patra — Computer Science Student"
+                   width="320" height="400"
+                   loading="eager"
+                   fetchpriority="high">
+              <div class="hero__image-tag">
+                <span class="dot"></span>
+                <span>Available for Internships</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-        </article>
-        <ul>
-            <button> Youtube </button>
-            <button> Twitter </button>
-            <button> LinkedIn </button>
-            <button> GitHub </button>
-        </ul>
-        <div class="recent-articles">
-            <div class="recent-blogs">
-                <h3>Recent Blog Posts .</h3>
-                <h4>Things I Have written recently : </h4>
-                <ul>
-                    <li>HTML - br,hr,comment,sementic tag ...</li>
-                    <li>HTML - tags,link,doc-type,head,body ,heading..</li>
-                    <li>HTML - history,tag,why need in web-dev ...</li>
-                    <li>HTML - Anchor tags, img, audio, video, absolute vs relative paths ... </li>
-                    <li>HTML - ul, ol, li, table, tr, td, th, colspan, rowspan ...</li>
-                </ul>
-            </div>
-            <div class="recent-paper">
-                <h3>Recent Papers</h3>
-                <h4>Paper I have Read Recently : </h4>
-                <ul>
-                    <li>C/C++ Threads safety analysis ...</li>
-                    <li>Java garbage collector ..</li>
-                    <li>CSS flexbox ...</li>
-                    <li>Asynchronous JavaScript </li>
-                </ul>
-            </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section class="skills section" id="skills" aria-label="Skills and Technologies">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">⚡ Technical Expertise</div>
+          <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
+          <p class="section-subtitle">A curated stack of languages, tools, and technologies I use to build things that matter.</p>
         </div>
-    </main>
-    <footer>
-        © Pratap Patra, 2026
-    </footer>
+
+        <div class="skills__grid">
+          <article class="skill-category reveal stagger-1" aria-label="Programming Languages">
+            <span class="skill-category__icon" aria-hidden="true">💻</span>
+            <h3 class="skill-category__title">Languages</h3>
+            <div class="skill-tags" role="list" aria-label="Programming languages">
+              <span class="skill-tag" role="listitem">C</span>
+              <span class="skill-tag" role="listitem">C++</span>
+              <span class="skill-tag" role="listitem">Java</span>
+              <span class="skill-tag" role="listitem">Python</span>
+              <span class="skill-tag" role="listitem">JavaScript</span>
+              <span class="skill-tag" role="listitem">TypeScript</span>
+            </div>
+          </article>
+
+          <article class="skill-category reveal stagger-2" aria-label="Frontend Technologies">
+            <span class="skill-category__icon" aria-hidden="true">🎨</span>
+            <h3 class="skill-category__title">Frontend</h3>
+            <div class="skill-tags" role="list" aria-label="Frontend technologies">
+              <span class="skill-tag" role="listitem">HTML5</span>
+              <span class="skill-tag" role="listitem">CSS3</span>
+              <span class="skill-tag" role="listitem">Tailwind CSS</span>
+              <span class="skill-tag" role="listitem">Responsive Design</span>
+              <span class="skill-tag" role="listitem">Accessibility</span>
+            </div>
+          </article>
+
+          <article class="skill-category reveal stagger-3" aria-label="Tools and Platforms">
+            <span class="skill-category__icon" aria-hidden="true">🛠️</span>
+            <h3 class="skill-category__title">Tools</h3>
+            <div class="skill-tags" role="list" aria-label="Development tools">
+              <span class="skill-tag" role="listitem">Git</span>
+              <span class="skill-tag" role="listitem">GitHub</span>
+              <span class="skill-tag" role="listitem">VS Code</span>
+              <span class="skill-tag" role="listitem">Linux</span>
+              <span class="skill-tag" role="listitem">Postman</span>
+            </div>
+          </article>
+
+          <article class="skill-category reveal stagger-4" aria-label="Soft Skills">
+            <span class="skill-category__icon" aria-hidden="true">🧠</span>
+            <h3 class="skill-category__title">Soft Skills</h3>
+            <div class="skill-tags" role="list" aria-label="Soft skills">
+              <span class="skill-tag" role="listitem">Problem Solving</span>
+              <span class="skill-tag" role="listitem">Team Work</span>
+              <span class="skill-tag" role="listitem">Communication</span>
+              <span class="skill-tag" role="listitem">Fast Learner</span>
+              <span class="skill-tag" role="listitem">Adaptability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT SNIPPET ── -->
+    <section class="home-about section" id="about" aria-label="About Me — Overview">
+      <div class="container">
+        <div class="home-about__grid">
+
+          <div class="reveal-left">
+            <div class="section-eyebrow">🙋 About Me</div>
+            <h2 class="home-about__title">
+              Passionate about building things that <span class="gradient-text">matter</span>
+            </h2>
+            <p class="home-about__desc">
+              I'm Pratap Patra, a 3rd-year Computer Science Engineering student with a strong passion
+              for software engineering, problem-solving, and creating meaningful digital experiences.
+            </p>
+            <p class="home-about__desc">
+              I believe in learning by doing — every project I build teaches me something new,
+              whether it's a design pattern, a system concept, or a smarter way to write code.
+            </p>
+
+            <div class="home-about__passions" aria-label="Areas of passion">
+              <span class="passion-tag">🔥 DSA</span>
+              <span class="passion-tag">🌐 Full Stack</span>
+              <span class="passion-tag">🤖 AI/ML</span>
+              <span class="passion-tag">🗄️ DBMS</span>
+              <span class="passion-tag">🖥️ OS</span>
+              <span class="passion-tag">📡 Networks</span>
+              <span class="passion-tag">☕ Java OOP</span>
+              <span class="passion-tag">🐍 Python</span>
+            </div>
+
+            <a href="about.html" class="btn btn--primary" style="margin-top:1.5rem;" aria-label="Read my full story on About page">
+              Read My Full Story →
+            </a>
+          </div>
+
+          <div class="home-about__visual reveal-right">
+            <div class="home-about__card-grid">
+              <div class="info-card">
+                <span class="info-card__icon" aria-hidden="true">🎯</span>
+                <div class="info-card__title">Problem Solver</div>
+                <div class="info-card__desc">Love cracking algorithmic challenges and building efficient, optimized solutions.</div>
+              </div>
+              <div class="info-card">
+                <span class="info-card__icon" aria-hidden="true">📚</span>
+                <div class="info-card__title">Lifelong Learner</div>
+                <div class="info-card__desc">Continuously expanding my knowledge across CS fundamentals and new technologies.</div>
+              </div>
+              <div class="info-card">
+                <span class="info-card__icon" aria-hidden="true">🚀</span>
+                <div class="info-card__title">Builder</div>
+                <div class="info-card__desc">Turning ideas into real, functional, and user-friendly digital applications.</div>
+              </div>
+              <div class="info-card">
+                <span class="info-card__icon" aria-hidden="true">🤝</span>
+                <div class="info-card__title">Team Player</div>
+                <div class="info-card__desc">Thrive in collaborative environments and open source development communities.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section class="education section" id="education" aria-label="Education Timeline">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">🎓 Academic Background</div>
+          <h2 class="section-title">My <span>Education</span></h2>
+          <p class="section-subtitle">The academic journey that built my technical foundation.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline__item reveal stagger-1">
+            <div class="timeline__dot current" aria-label="Current education"></div>
+            <div class="timeline__date">2023 — Present</div>
+            <h3 class="timeline__title">B.Tech in Computer Science Engineering</h3>
+            <p class="timeline__sub">Your University Name · [City, State]</p>
+            <p class="timeline__desc">
+              Currently in 3rd year studying Data Structures &amp; Algorithms, Operating Systems,
+              Database Management Systems, Computer Networks, and Object-Oriented Programming.
+              Focused on software development and competitive programming.
+            </p>
+          </article>
+
+          <article class="timeline__item reveal stagger-2">
+            <div class="timeline__dot"></div>
+            <div class="timeline__date">2021 — 2023</div>
+            <h3 class="timeline__title">Higher Secondary (12th) — Science Stream</h3>
+            <p class="timeline__sub">Your School Name · [City, State]</p>
+            <p class="timeline__desc">
+              Completed 12th grade with Physics, Chemistry, and Mathematics.
+              Scored [X]% marks. Developed a deep interest in computer science during this period.
+            </p>
+          </article>
+
+          <article class="timeline__item reveal stagger-3">
+            <div class="timeline__dot"></div>
+            <div class="timeline__date">2019 — 2021</div>
+            <h3 class="timeline__title">Secondary Education (10th)</h3>
+            <p class="timeline__sub">Your School Name · [City, State]</p>
+            <p class="timeline__desc">
+              Completed 10th grade securing [X]% marks.
+              Built a strong foundation in mathematics and sciences.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ACHIEVEMENTS ── -->
+    <section class="achievements section" id="achievements" aria-label="Achievements and Milestones">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">🏆 Milestones</div>
+          <h2 class="section-title">Achievements &amp; <span>Progress</span></h2>
+          <p class="section-subtitle">Coding milestones, competitive programming, and certifications I'm proud of.</p>
+        </div>
+
+        <div class="achievements__grid">
+          <article class="achievement-card reveal stagger-1">
+            <span class="achievement-card__icon" aria-hidden="true">⚔️</span>
+            <h3 class="achievement-card__title">DSA Journey</h3>
+            <p class="achievement-card__desc">Actively solving Data Structures &amp; Algorithms problems daily on LeetCode and GeeksforGeeks, building strong problem-solving fundamentals.</p>
+            <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" class="platform-link" aria-label="View LeetCode profile">View LeetCode Profile →</a>
+          </article>
+
+          <article class="achievement-card reveal stagger-2">
+            <span class="achievement-card__icon" aria-hidden="true">🐙</span>
+            <h3 class="achievement-card__title">GitHub Activity</h3>
+            <p class="achievement-card__desc">Maintaining an active GitHub profile with 15+ repositories, consistent commits, and contributions to open source projects.</p>
+            <a href="https://github.com/pratappatra078" target="_blank" rel="noopener noreferrer" class="platform-link" aria-label="View GitHub profile">View GitHub Profile →</a>
+          </article>
+
+          <article class="achievement-card reveal stagger-3">
+            <span class="achievement-card__icon" aria-hidden="true">📜</span>
+            <h3 class="achievement-card__title">Certifications</h3>
+            <p class="achievement-card__desc">[Add your certifications here — e.g., "Python for Everybody (Coursera)", "Google IT Automation Certificate", "freeCodeCamp", etc.]</p>
+            <a href="#" class="platform-link" aria-label="View certifications">View Certifications →</a>
+          </article>
+
+          <article class="achievement-card reveal stagger-4">
+            <span class="achievement-card__icon" aria-hidden="true">🏅</span>
+            <h3 class="achievement-card__title">Academic Achievements</h3>
+            <p class="achievement-card__desc">[Add your academic wins here — CGPA, college rank, scholarships, hackathons, coding competitions, or any awards you've received.]</p>
+          </article>
+
+          <article class="achievement-card reveal stagger-5">
+            <span class="achievement-card__icon" aria-hidden="true">💡</span>
+            <h3 class="achievement-card__title">15+ Projects Built</h3>
+            <p class="achievement-card__desc">Built 15+ projects spanning web development, command-line tools, and full-stack applications using multiple languages and frameworks.</p>
+            <a href="projects.html" class="platform-link" aria-label="See all projects">See All Projects →</a>
+          </article>
+
+          <article class="achievement-card reveal stagger-6">
+            <span class="achievement-card__icon" aria-hidden="true">✍️</span>
+            <h3 class="achievement-card__title">Technical Writing</h3>
+            <p class="achievement-card__desc">Sharing knowledge through technical blog posts on DSA, web development, OS, DBMS, and networking — helping others while deepening my own understanding.</p>
+            <a href="blog.html" class="platform-link" aria-label="Read my blog">Read My Blog →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RECENT BLOG POSTS ── -->
+    <section class="home-blog section" id="blog-preview" aria-label="Recent Blog Posts">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">✍️ From My Blog</div>
+          <h2 class="section-title">Recent <span>Articles</span></h2>
+          <p class="section-subtitle">Thoughts, tutorials, and learnings from my coding journey.</p>
+        </div>
+
+        <div class="home-blog__grid">
+          <a href="blog.html" class="home-blog-card reveal stagger-1" aria-label="Read: Getting Started with Data Structures">
+            <div class="home-blog-card__cat">DSA</div>
+            <h3 class="home-blog-card__title">Getting Started with Data Structures: Arrays &amp; Linked Lists</h3>
+            <div class="home-blog-card__meta">
+              <span>📅 July 10, 2026</span>
+              <span>⏱ 8 min read</span>
+            </div>
+          </a>
+
+          <a href="blog.html" class="home-blog-card reveal stagger-2" aria-label="Read: CSS Flexbox vs Grid">
+            <div class="home-blog-card__cat">CSS Tricks</div>
+            <h3 class="home-blog-card__title">CSS Flexbox vs Grid: When to Use Which</h3>
+            <div class="home-blog-card__meta">
+              <span>📅 July 5, 2026</span>
+              <span>⏱ 6 min read</span>
+            </div>
+          </a>
+
+          <a href="blog.html" class="home-blog-card reveal stagger-3" aria-label="Read: JavaScript Promises and Async/Await">
+            <div class="home-blog-card__cat">JavaScript Tips</div>
+            <h3 class="home-blog-card__title">JavaScript Promises &amp; Async/Await Explained</h3>
+            <div class="home-blog-card__meta">
+              <span>📅 July 1, 2026</span>
+              <span>⏱ 10 min read</span>
+            </div>
+          </a>
+        </div>
+
+        <div style="text-align:center; margin-top:2.5rem;">
+          <a href="blog.html" class="btn btn--outline btn--lg reveal" aria-label="View all blog posts">View All Posts →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT CTA ── -->
+    <section class="home-cta section" id="contact" aria-label="Contact Call to Action">
+      <div class="container">
+        <div class="home-cta__card reveal">
+          <h2 class="home-cta__title">
+            Let's Build Something <span class="gradient-text">Amazing</span> Together
+          </h2>
+          <p class="home-cta__desc">
+            I'm actively looking for internship opportunities and exciting projects.
+            Whether you have an opportunity or just want to connect — let's talk!
+          </p>
+          <div class="home-cta__buttons">
+            <a href="mailto:pratap@example.com" class="btn btn--primary btn--lg" aria-label="Send me an email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Send Me an Email
+            </a>
+            <a href="https://linkedin.com/in/pratap-patra" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg" aria-label="Connect on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__logo">Pratap Patra</div>
+          <p class="footer__desc">3rd-year CSE student passionate about software development, problem-solving, and building impactful digital solutions.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="https://github.com/pratappatra078" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/pratap-patra-b413b9301/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://twitter.com/pratappatra" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Twitter/X Profile">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com/pratappatra" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="mailto:pratap@example.com" class="footer__social-link" aria-label="Send email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation links -->
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="projects.html" class="footer__link">Projects</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="about.html"    class="footer__link">About Me</a></li>
+          </ul>
+        </div>
+
+        <!-- Project links -->
+        <div>
+          <div class="footer__col-title">Projects</div>
+          <ul class="footer__links" role="list">
+            <li><a href="projects.html" class="footer__link">Portfolio Website</a></li>
+            <!-- <li><a href="projects.html" class="footer__link">Weather Dashboard</a></li> -->
+            <!-- <li><a href="projects.html" class="footer__link">Task Manager</a></li> -->
+            <!-- <li><a href="projects.html" class="footer__link">AI Resume Builder</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Connect links -->
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <ul class="footer__links" role="list">
+            <li><a href="https://github.com/pratappatra078"        target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/pratap-patra-b413b9301/"     target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a></li>
+            <li><a href="https://twitter.com/pratappatra"          target="_blank" rel="noopener noreferrer" class="footer__link">Twitter / X</a></li>
+            <li><a href="mailto:pratap@example.com"                class="footer__link">Email</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © 2026 Pratap Patra. Built with ❤️ using HTML, CSS &amp; Vanilla JS.
+        </p>
+        <button class="footer__back-top" aria-label="Back to top of page">Back to Top ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top floating button -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll back to top" title="Back to top">↑</button>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+  <script src="js/animation.js" defer></script>
 </body>
-
 </html>

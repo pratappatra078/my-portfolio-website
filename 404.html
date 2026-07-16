@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>404 — Page Not Found | Pratap Patra</title>
+  <meta name="description" content="Oops! The page you're looking for doesn't exist. Return to Pratap Patra's portfolio.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="theme-color" content="#6366f1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* 404 page specific */
+    .page-404 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-404__blobs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-404__blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.14;
+    }
+
+    .page-404__blob--1 {
+      width: 480px;
+      height: 480px;
+      background: var(--color-accent);
+      top: -100px;
+      right: -80px;
+      animation: blobMorph1 14s ease-in-out infinite;
+    }
+
+    .page-404__blob--2 {
+      width: 360px;
+      height: 360px;
+      background: var(--color-accent-2);
+      bottom: -80px;
+      left: -100px;
+      animation: blobMorph2 16s ease-in-out infinite;
+    }
+
+    .page-404__content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .page-404__code {
+      font-family: var(--font-heading);
+      font-size: clamp(6rem, 18vw, 11rem);
+      font-weight: 800;
+      line-height: 1;
+      background: var(--gradient-hero);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s ease infinite;
+      margin-bottom: var(--sp-2);
+      letter-spacing: -0.05em;
+    }
+
+    .page-404__emoji {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: var(--sp-5);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .page-404__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-3);
+    }
+
+    .page-404__desc {
+      font-size: 1rem;
+      color: var(--color-text-2);
+      line-height: 1.75;
+      margin-bottom: var(--sp-8);
+    }
+
+    .page-404__actions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-10);
+    }
+
+    .page-404__suggestions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .suggestion-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: var(--r-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text-2);
+      text-decoration: none;
+      background: var(--color-bg-card);
+      border: 1px solid var(--border);
+      transition: all var(--ease-fast);
+    }
+
+    .suggestion-link:hover {
+      border-color: var(--border-accent);
+      color: var(--color-accent);
+      background: rgba(99, 102, 241, 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* Countdown timer */
+    .page-404__countdown {
+      font-size: 0.82rem;
+      color: var(--color-text-3);
+      margin-top: var(--sp-6);
+    }
+
+    .page-404__countdown #countdown-num {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    @media (max-width: 480px) {
+      .page-404__actions { flex-direction: column; align-items: center; }
+      .page-404__actions .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor"          aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Navigation (minimal) -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Home">PP</a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html"    class="navbar__link">Home</a></li>
+        <li><a href="projects.html" class="navbar__link">Projects</a></li>
+        <li><a href="blog.html"     class="navbar__link">Blog</a></li>
+        <li><a href="about.html"    class="navbar__link">About Me</a></li>
+      </ul>
+      <div class="navbar__controls">
+        <button class="navbar__theme" id="theme-toggle" aria-label="Switch theme">🌙</button>
+        <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-label="Open menu" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar__mobile" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html"    class="navbar__mobile-link">🏠 Home</a>
+    <a href="projects.html" class="navbar__mobile-link">💻 Projects</a>
+    <a href="blog.html"     class="navbar__mobile-link">📝 Blog</a>
+    <a href="about.html"    class="navbar__mobile-link">👤 About Me</a>
+  </div>
+
+  <!-- Main 404 Content -->
+  <main class="page-404" id="main-content">
+    <div class="page-404__blobs" aria-hidden="true">
+      <div class="page-404__blob page-404__blob--1"></div>
+      <div class="page-404__blob page-404__blob--2"></div>
+    </div>
+
+    <div class="page-404__content">
+      <div class="page-404__code" aria-label="404 error">404</div>
+      <span class="page-404__emoji" aria-hidden="true">🌌</span>
+      <h1 class="page-404__title">Oops! Page Not Found</h1>
+      <p class="page-404__desc">
+        The page you're looking for seems to have wandered off into the void.
+        It might have been moved, deleted, or never existed in the first place.
+      </p>
+
+      <div class="page-404__actions">
+        <a href="index.html" class="btn btn--primary btn--lg" aria-label="Go back home">
+          🏠 Back to Home
+        </a>
+        <button onclick="history.back()" class="btn btn--outline btn--lg" aria-label="Go back to previous page">
+          ← Go Back
+        </button>
+      </div>
+
+      <p style="font-size:0.82rem;color:var(--color-text-3);margin-bottom:var(--sp-4);">Or try one of these pages:</p>
+      <div class="page-404__suggestions">
+        <a href="projects.html" class="suggestion-link" aria-label="View projects">💻 Projects</a>
+        <a href="blog.html"     class="suggestion-link" aria-label="Read blog">📝 Blog</a>
+        <a href="about.html"    class="suggestion-link" aria-label="About me">👤 About Me</a>
+      </div>
+
+      <p class="page-404__countdown">
+        Redirecting to home in <span id="countdown-num">10</span> seconds...
+      </p>
+    </div>
+  </main>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // Auto-redirect countdown
+    let seconds = 10;
+    const countEl = document.getElementById('countdown-num');
+    const timer = setInterval(() => {
+      seconds--;
+      if (countEl) countEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>About Me | Pratap Patra — CSE Student & Software Developer</title>
+  <meta name="description" content="Learn about Pratap Patra — a passionate 3rd-year CSE student who loves software development, DSA, full-stack engineering, and building impactful projects. Read my story, values, and goals.">
+  <meta name="author"  content="Pratap Patra">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pratappatra078.github.io/my-portfolio-website/about.html">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="About Me | Pratap Patra">
+  <meta property="og:description" content="3rd-year CSE student passionate about software development, DSA, and full-stack engineering.">
+  <meta property="og:url"         content="https://pratappatra078.github.io/my-portfolio-website/about.html">
+  <meta property="og:image"       content="https://pratappatra078.github.io/my-portfolio-website/Pratap.png">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="About Me | Pratap Patra">
+  <meta name="twitter:description" content="3rd-year CSE student — software developer, DSA enthusiast, lifelong learner.">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.ico">
+  <meta name="theme-color" content="#6366f1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="loader" role="status" aria-label="Loading">
+    <div class="loader__inner">
+      <div class="loader__logo">PP</div>
+      <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+  <div class="scroll-progress" role="progressbar" aria-label="Reading progress"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Home">PP</a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html"    class="navbar__link">Home</a></li>
+        <li><a href="projects.html" class="navbar__link">Projects</a></li>
+        <li><a href="blog.html"     class="navbar__link">Blog</a></li>
+        <li><a href="about.html"    class="navbar__link">About Me</a></li>
+      </ul>
+      <div class="navbar__controls">
+        <button class="navbar__theme" id="theme-toggle" aria-label="Switch theme">🌙</button>
+        <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-label="Open menu" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar__mobile" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html"    class="navbar__mobile-link">🏠 Home</a>
+    <a href="projects.html" class="navbar__mobile-link">💻 Projects</a>
+    <a href="blog.html"     class="navbar__mobile-link">📝 Blog</a>
+    <a href="about.html"    class="navbar__mobile-link">👤 About Me</a>
+  </div>
+
+  <!-- Main -->
+  <main id="main-content">
+
+    <!-- ── About Hero ── -->
+    <header class="about-hero" aria-label="About page hero">
+      <div class="container">
+        <div class="about-hero__avatar reveal" aria-label="Profile photo of Pratap Patra">
+          <img src="Pratap.png" alt="Pratap Patra — Computer Science Student" width="130" height="130" loading="eager">
+        </div>
+
+        <div class="section-eyebrow reveal">👤 About Me</div>
+        <h1 class="about-hero__title reveal">
+          I'm <span class="gradient-text">Pratap Patra</span>
+        </h1>
+        <p class="about-hero__desc reveal">
+          A passionate 3rd-year B.Tech CSE student who loves building software,
+          solving hard problems, and continuously growing as a developer and person.
+        </p>
+
+        <div class="about-hero__badges reveal" aria-label="Key roles">
+          <span class="badge">🎓 CSE Student</span>
+          <span class="badge">💻 Software Developer</span>
+          <span class="badge">🔥 DSA Enthusiast</span>
+          <span class="badge">🌐 Web Developer</span>
+          <span class="badge">📖 Tech Blogger</span>
+        </div>
+
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;" class="reveal">
+          <a href="Pratap Patra Resume.pdf" download class="btn btn--primary btn--lg" aria-label="Download resume">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume
+          </a>
+          <a href="mailto:pratap@example.com" class="btn btn--outline btn--lg" aria-label="Send email">
+            Say Hello 👋
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Who I Am ── -->
+    <section class="about-section" aria-label="Who I am">
+      <div class="container">
+        <div class="about-section__grid">
+          <div class="about-section__content reveal-left">
+            <div class="about-section__label">🙋 Who I Am</div>
+            <h2 class="about-section__title">A builder at heart, a learner by <span class="gradient-text">nature</span></h2>
+            <p class="about-section__text">
+              Hi! I'm Pratap Patra, a 3rd-year Computer Science Engineering student with a deep passion
+              for software engineering, problem-solving, and creating meaningful digital experiences.
+            </p>
+            <p class="about-section__text">
+              My journey in computer science began when I realized that code is one of the most
+              powerful tools in the world — it can automate, create, and solve problems at scale.
+              That realization set me on an exciting path of continuous learning and building.
+            </p>
+            <p class="about-section__text">
+              I believe in <strong>learning by doing</strong>. Every project I build, every problem I solve,
+              and every article I write deepens my understanding and makes me a better developer.
+              I'm driven by curiosity, passion, and a genuine love for the craft.
+            </p>
+          </div>
+          <div class="about-section__visual reveal-right">
+            <div class="goals-list">
+              <div class="goal-item">
+                <div class="goal-item__num">01</div>
+                <div>
+                  <div class="goal-item__title">🎯 Software Engineering</div>
+                  <div class="goal-item__desc">Building clean, efficient, and maintainable software solutions that solve real problems.</div>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-item__num">02</div>
+                <div>
+                  <div class="goal-item__title">📐 Problem Solving</div>
+                  <div class="goal-item__desc">Approaching complex challenges with structured thinking, algorithms, and data structures.</div>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-item__num">03</div>
+                <div>
+                  <div class="goal-item__title">🌐 Full Stack Development</div>
+                  <div class="goal-item__desc">Developing end-to-end applications from intuitive UIs to robust backend architectures.</div>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-item__num">04</div>
+                <div>
+                  <div class="goal-item__title">🧠 Continuous Learning</div>
+                  <div class="goal-item__desc">Staying updated with industry trends, new technologies, and best practices.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Technical Interests ── -->
+    <section class="about-section" aria-label="Technical interests">
+      <div class="container">
+        <div class="about-section__grid about-section__grid--reverse">
+          <div class="about-section__visual reveal-left">
+            <div class="interest-list">
+              <div class="interest-item">
+                <div class="interest-item__icon" aria-hidden="true">⚔️</div>
+                <div>
+                  <div class="interest-item__title">Data Structures & Algorithms</div>
+                  <div class="interest-item__desc">Daily practice on LeetCode and GFG; love for recursion, graphs, and dynamic programming.</div>
+                </div>
+              </div>
+              <div class="interest-item">
+                <div class="interest-item__icon" aria-hidden="true">🖥️</div>
+                <div>
+                  <div class="interest-item__title">Operating Systems</div>
+                  <div class="interest-item__desc">Processes, threads, memory management, scheduling algorithms, and concurrency control.</div>
+                </div>
+              </div>
+              <div class="interest-item">
+                <div class="interest-item__icon" aria-hidden="true">🗄️</div>
+                <div>
+                  <div class="interest-item__title">Database Management Systems</div>
+                  <div class="interest-item__desc">SQL, normalization, transactions, indexing, and query optimization techniques.</div>
+                </div>
+              </div>
+              <div class="interest-item">
+                <div class="interest-item__icon" aria-hidden="true">📡</div>
+                <div>
+                  <div class="interest-item__title">Computer Networks</div>
+                  <div class="interest-item__desc">TCP/IP model, HTTP, DNS, routing protocols, and network security fundamentals.</div>
+                </div>
+              </div>
+              <div class="interest-item">
+                <div class="interest-item__icon" aria-hidden="true">🎯</div>
+                <div>
+                  <div class="interest-item__title">Object-Oriented Programming</div>
+                  <div class="interest-item__desc">SOLID principles, design patterns, inheritance, polymorphism, and abstraction.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section__content reveal-right">
+            <div class="about-section__label">💡 Technical Interests</div>
+            <h2 class="about-section__title">The subjects that <span class="gradient-text">fascinate</span> me most</h2>
+            <p class="about-section__text">
+              As a Computer Science student, I'm fascinated by the core fundamentals that
+              power modern software systems. These aren't just academic subjects to me —
+              they're the building blocks of everything I want to build professionally.
+            </p>
+            <p class="about-section__text">
+              I strongly believe that a deep understanding of CS fundamentals separates
+              great engineers from average ones. That's why I invest time mastering
+              these concepts beyond what's taught in the classroom.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── My Learning Journey ── -->
+    <section class="about-section" aria-label="My learning journey">
+      <div class="container">
+        <div class="about-section__label reveal" style="text-align:center;">🚀 My Journey</div>
+        <h2 class="about-section__title reveal" style="text-align:center;margin-bottom:var(--sp-4);">
+          How I got <span class="gradient-text">here</span>
+        </h2>
+        <p class="about-section__text reveal" style="text-align:center;max-width:620px;margin:0 auto var(--sp-12);">
+          My coding story didn't start with a class or a course — it started with curiosity.
+        </p>
+
+        <div class="goals-list" style="max-width:700px;margin:0 auto;">
+          <div class="goal-item reveal stagger-1">
+            <div class="goal-item__num">01</div>
+            <div>
+              <div class="goal-item__title">🌱 The Beginning</div>
+              <div class="goal-item__desc">Started with C during my first semester. The first time a program I wrote actually ran correctly, I was hooked. That feeling of creating something from nothing set everything in motion.</div>
+            </div>
+          </div>
+          <div class="goal-item reveal stagger-2">
+            <div class="goal-item__num">02</div>
+            <div>
+              <div class="goal-item__title">📚 Foundation Building</div>
+              <div class="goal-item__desc">Dove deep into DSA, OOP with Java, Python for scripting, and web fundamentals. Built small projects — calculators, to-do apps, basic websites — to reinforce learning.</div>
+            </div>
+          </div>
+          <div class="goal-item reveal stagger-3">
+            <div class="goal-item__num">03</div>
+            <div>
+              <div class="goal-item__title">🔨 Building Real Projects</div>
+              <div class="goal-item__desc">Started building progressively complex projects — student management systems, weather dashboards, task managers — applying classroom knowledge to practical problems.</div>
+            </div>
+          </div>
+          <div class="goal-item reveal stagger-4">
+            <div class="goal-item__num">04</div>
+            <div>
+              <div class="goal-item__title">📖 Sharing Knowledge</div>
+              <div class="goal-item__desc">Started writing technical blog posts to solidify my own understanding and help others. Teaching is the best way to learn — I firmly believe that.</div>
+            </div>
+          </div>
+          <div class="goal-item reveal stagger-5">
+            <div class="goal-item__num">05</div>
+            <div>
+              <div class="goal-item__title">🎯 Where I Am Now</div>
+              <div class="goal-item__desc">3rd year CSE student with 15+ projects, an active GitHub profile, consistent DSA practice, and a clear vision for my software engineering career. The journey continues!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Currently Learning ── -->
+    <section class="about-section" aria-label="Currently learning">
+      <div class="container">
+        <div class="about-section__label reveal" style="text-align:center;">📖 Growth</div>
+        <h2 class="about-section__title reveal" style="text-align:center;margin-bottom:var(--sp-4);">
+          What I'm <span class="gradient-text">Currently Learning</span>
+        </h2>
+        <p class="about-section__text reveal" style="text-align:center;max-width:540px;margin:0 auto var(--sp-10);">
+          I'm always expanding my skill set. Here's what's on my learning plate right now.
+        </p>
+
+        <div class="learning-grid" style="max-width:840px;margin:0 auto;">
+          <div class="learning-card reveal stagger-1">
+            <span class="learning-card__icon" aria-hidden="true">⚛️</span>
+            <div class="learning-card__name">React.js</div>
+            <div class="learning-card__desc">Building component-based UIs and exploring the React ecosystem for modern web apps.</div>
+          </div>
+          <div class="learning-card reveal stagger-2">
+            <span class="learning-card__icon" aria-hidden="true">🐍</span>
+            <div class="learning-card__name">Advanced Python</div>
+            <div class="learning-card__desc">Flask for web APIs, data processing with Pandas, and automation scripting.</div>
+          </div>
+          <div class="learning-card reveal stagger-3">
+            <span class="learning-card__icon" aria-hidden="true">☁️</span>
+            <div class="learning-card__name">Cloud Computing</div>
+            <div class="learning-card__desc">Exploring AWS fundamentals — EC2, S3, Lambda — for scalable cloud deployments.</div>
+          </div>
+          <div class="learning-card reveal stagger-4">
+            <span class="learning-card__icon" aria-hidden="true">🤖</span>
+            <div class="learning-card__name">Machine Learning</div>
+            <div class="learning-card__desc">Scikit-learn, regression, classification algorithms, and model evaluation techniques.</div>
+          </div>
+          <div class="learning-card reveal stagger-5">
+            <span class="learning-card__icon" aria-hidden="true">🗄️</span>
+            <div class="learning-card__name">System Design</div>
+            <div class="learning-card__desc">Scalable architecture patterns, load balancing, caching, and distributed systems concepts.</div>
+          </div>
+          <div class="learning-card reveal stagger-6">
+            <span class="learning-card__icon" aria-hidden="true">🧮</span>
+            <div class="learning-card__name">Advanced DSA</div>
+            <div class="learning-card__desc">Graph algorithms, dynamic programming patterns, and competitive programming on LeetCode.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Values & Work Ethic ── -->
+    <section class="about-section" aria-label="Values and work ethic">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-eyebrow">⚖️ Work Ethic</div>
+          <h2 class="section-title">My <span>Values</span></h2>
+          <p class="section-subtitle">The principles I bring to every project, collaboration, and line of code.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card reveal stagger-1">
+            <span class="value-card__icon" aria-hidden="true">🎯</span>
+            <div class="value-card__title">Quality Over Quantity</div>
+            <div class="value-card__desc">I'd rather write ten lines of clean, documented, efficient code than a hundred lines of spaghetti. Quality always comes first.</div>
+          </div>
+          <div class="value-card reveal stagger-2">
+            <span class="value-card__icon" aria-hidden="true">📖</span>
+            <div class="value-card__title">Never Stop Learning</div>
+            <div class="value-card__desc">Technology evolves rapidly. I'm committed to continuous learning, staying curious, and adapting to new tools and paradigms.</div>
+          </div>
+          <div class="value-card reveal stagger-3">
+            <span class="value-card__icon" aria-hidden="true">🤝</span>
+            <div class="value-card__title">Collaboration</div>
+            <div class="value-card__desc">The best software is built by teams. I value open communication, respectful feedback, and the collective intelligence of a good team.</div>
+          </div>
+          <div class="value-card reveal stagger-4">
+            <span class="value-card__icon" aria-hidden="true">💪</span>
+            <div class="value-card__title">Ownership</div>
+            <div class="value-card__desc">I take full ownership of my work. If something breaks, I fix it. If I don't know something, I learn it. No blame-shifting.</div>
+          </div>
+          <div class="value-card reveal stagger-5">
+            <span class="value-card__icon" aria-hidden="true">👁️</span>
+            <div class="value-card__title">User Empathy</div>
+            <div class="value-card__desc">I build for people, not machines. Understanding user needs and building accessible, intuitive experiences is central to my approach.</div>
+          </div>
+          <div class="value-card reveal stagger-6">
+            <span class="value-card__icon" aria-hidden="true">🌱</span>
+            <div class="value-card__title">Give Back</div>
+            <div class="value-card__desc">I share what I learn through blog posts and open source contributions. The developer community gave me so much; I aim to give back.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Hobbies ── -->
+    <section class="about-section" aria-label="Hobbies and interests outside coding">
+      <div class="container">
+        <div class="about-section__label reveal" style="text-align:center;">🎮 Beyond Code</div>
+        <h2 class="about-section__title reveal" style="text-align:center;margin-bottom:var(--sp-4);">
+          Life <span class="gradient-text">Outside the Terminal</span>
+        </h2>
+        <p class="about-section__text reveal" style="text-align:center;max-width:520px;margin:0 auto var(--sp-6);">
+          I'm not just a coder — here are some things I enjoy when I'm not at my keyboard.
+        </p>
+
+        <div class="hobbies-wrap reveal" style="justify-content:center;">
+          <div class="hobby-item">📚 Reading Tech Books</div>
+          <div class="hobby-item">🎯 Competitive Programming</div>
+          <div class="hobby-item">🏏 Cricket</div>
+          <div class="hobby-item">🎵 Music</div>
+          <div class="hobby-item">🌿 Nature Walks</div>
+          <div class="hobby-item">🎬 Tech Documentaries</div>
+          <div class="hobby-item">♟️ Chess</div>
+          <div class="hobby-item">🌐 Open Source</div>
+          <div class="hobby-item">✍️ Technical Writing</div>
+          <div class="hobby-item">🎮 Problem Sets</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="about-cta" id="contact" aria-label="Contact call to action">
+      <div class="container">
+        <div class="about-cta__card reveal">
+          <h2 class="about-cta__title">
+            Let's <span class="gradient-text">Connect</span>
+          </h2>
+          <p class="about-cta__desc">
+            I'm actively looking for internship opportunities, open source collaborations,
+            and interesting projects. If you'd like to work together or just have a chat —
+            I'd love to hear from you!
+          </p>
+          <div class="about-cta__buttons">
+            <a href="mailto:pratap@example.com" class="btn btn--primary btn--lg" aria-label="Send an email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Send Me an Email
+            </a>
+            <a href="https://linkedin.com/in/pratap-patra" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg" aria-label="Connect on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="Pratap Patra Resume.pdf" download class="btn btn--ghost btn--lg" aria-label="Download resume">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Pratap Patra</div>
+          <p class="footer__desc">CSE student passionate about software development, DSA, and building impactful digital solutions.</p>
+          <div class="footer__social">
+            <a href="https://github.com/pratappatra078" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/pratap-patra" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="mailto:pratap@example.com" class="footer__social-link" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="projects.html" class="footer__link">Projects</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="about.html"    class="footer__link">About Me</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Sections</div>
+          <ul class="footer__links">
+            <li><a href="#contact" class="footer__link">Contact</a></li>
+            <li><a href="projects.html" class="footer__link">Projects</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="Pratap Patra Resume.pdf" download class="footer__link">Resume PDF</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <ul class="footer__links">
+            <li><a href="https://github.com/pratappatra078"    target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/pratap-patra" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a></li>
+            <li><a href="https://twitter.com/pratappatra"      target="_blank" rel="noopener noreferrer" class="footer__link">Twitter / X</a></li>
+            <li><a href="mailto:pratap@example.com"            class="footer__link">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Pratap Patra. Built with ❤️ using HTML, CSS &amp; Vanilla JS.</p>
+        <button class="footer__back-top" aria-label="Back to top">Back to Top ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"     defer></script>
+  <script src="js/animation.js" defer></script>
+</body>
+</html>
