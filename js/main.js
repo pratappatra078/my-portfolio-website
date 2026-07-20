@@ -15,87 +15,13 @@ const loader = document.querySelector('.loader');
 function hideLoader() {
   if (!loader) return;
   loader.classList.add('loader--hidden');
-  // Remove from DOM after transition
   loader.addEventListener('transitionend', () => loader.remove(), { once: true });
 }
 
 if (document.readyState === 'complete') {
-  setTimeout(hideLoader, 900);
+  hideLoader();
 } else {
-  window.addEventListener('load', () => setTimeout(hideLoader, 900));
-}
-
-/* ============================================================
-   PAGE FADE-IN
-   ============================================================ */
-document.body.style.opacity = '0';
-document.body.style.transition = 'opacity 0.45s ease';
-window.addEventListener('load', () => {
-  requestAnimationFrame(() => { document.body.style.opacity = '1'; });
-});
-
-/* ============================================================
-   CUSTOM CURSOR
-   ============================================================ */
-const cursor         = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
-
-if (cursor && cursorFollower && window.matchMedia('(hover: hover)').matches) {
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
-
-  // Move dot cursor immediately
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-  });
-
-  // Smooth-follow the ring cursor
-  (function animateFollower() {
-    followerX += (mouseX - followerX) * 0.11;
-    followerY += (mouseY - followerY) * 0.11;
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top  = followerY + 'px';
-    requestAnimationFrame(animateFollower);
-  })();
-
-  // Hover state on interactive elements
-  function updateCursorHover() {
-    const interactives = document.querySelectorAll(
-      'a, button, [role="button"], .project-card, .skill-tag, .filter-btn, .cat-pill, .badge, input, textarea'
-    );
-    interactives.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor--hover');
-        cursorFollower.classList.add('cursor-follower--hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor--hover');
-        cursorFollower.classList.remove('cursor-follower--hover');
-      });
-    });
-  }
-  updateCursorHover();
-
-  // Re-apply after dynamic renders (projects/blog JS)
-  window.updateCursorHover = updateCursorHover;
-
-  // Hide cursor when leaving window
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-    cursorFollower.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-    cursorFollower.style.opacity = '1';
-  });
-} else {
-  // Touch or no-hover device — remove cursor elements
-  cursor?.remove();
-  cursorFollower?.remove();
-  document.body.style.cursor = 'auto';
+  window.addEventListener('load', hideLoader);
 }
 
 /* ============================================================
@@ -281,24 +207,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ============================================================
-   PAGE LINK TRANSITIONS (fade out before navigating)
-   ============================================================ */
-document.querySelectorAll('a[href]').forEach(link => {
-  const href = link.getAttribute('href');
-  // Only internal HTML page links (not anchors, not external)
-  if (
-    href &&
-    !href.startsWith('#') &&
-    !href.startsWith('http') &&
-    !href.startsWith('mailto') &&
-    !href.startsWith('tel') &&
-    href.endsWith('.html')
-  ) {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.body.style.opacity = '0';
-      setTimeout(() => { window.location.href = href; }, 350);
-    });
-  }
-});

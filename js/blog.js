@@ -236,7 +236,6 @@ function renderBlogGrid() {
 
   // Re-trigger reveal for newly injected cards
   if (typeof initScrollReveal === 'function') initScrollReveal();
-  if (window.updateCursorHover)               window.updateCursorHover();
 }
 
 /* ============================================================

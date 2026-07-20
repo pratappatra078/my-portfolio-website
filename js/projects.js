@@ -321,10 +321,8 @@ function renderProjects() {
 
   grid.innerHTML = filtered.map(createProjectCard).join('');
 
-  // Re-initialise reveal and tilt for newly rendered cards
+  // Re-initialise reveal for newly rendered cards
   if (typeof initScrollReveal === 'function') initScrollReveal();
-  if (window.initTiltCards)                   window.initTiltCards();
-  if (window.updateCursorHover)               window.updateCursorHover();
 
   // Re-attach ripple to new buttons
   grid.querySelectorAll('.btn').forEach(btn => {

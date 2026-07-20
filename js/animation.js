@@ -1,9 +1,7 @@
 /* ============================================================
    ANIMATION JS — animation.js
    Portfolio: Pratap Patra | 2026
-   Handles: Scroll Reveal, Typing Effect, Parallax Blobs,
-            Mouse Parallax, Tilt Cards, Magnetic Buttons,
-            Counter Animation, Stagger Groups
+   Handles: Scroll Reveal, Typing Effect, Counter Animation, Stagger Groups
    ============================================================ */
 
 'use strict';
@@ -19,12 +17,12 @@ function initScrollReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
-        observer.unobserve(entry.target); // Animate only once
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   revealEls.forEach(el => observer.observe(el));
@@ -32,7 +30,6 @@ function initScrollReveal() {
 
 /* ============================================================
    STAGGER GROUP ANIMATION
-   Children of [data-stagger] elements animate in sequence.
    ============================================================ */
 function initStaggerAnimations() {
   const staggerGroups = document.querySelectorAll('[data-stagger]');
@@ -44,13 +41,12 @@ function initStaggerAnimations() {
         const children = Array.from(entry.target.children);
         children.forEach((child, i) => {
           child.classList.add('reveal');
-          // Use setTimeout to ensure class is added before delay
-          setTimeout(() => child.classList.add('revealed'), i * 90);
+          setTimeout(() => child.classList.add('revealed'), i * 50);
         });
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.05 });
 
   staggerGroups.forEach(group => observer.observe(group));
 }
@@ -108,125 +104,11 @@ function initTypingEffect() {
     setTimeout(type, timeout);
   }
 
-  // Start after a short delay for dramatic effect
-  setTimeout(type, 1000);
+  setTimeout(type, 300);
 }
 
-/* ============================================================
-   SCROLL PARALLAX — Hero background blobs
-   ============================================================ */
-function initScrollParallax() {
-  const blobs = document.querySelectorAll('.hero__blob');
-  if (!blobs.length) return;
-
-  let ticking = false;
-
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    requestAnimationFrame(() => {
-      const scrollY = window.scrollY;
-      blobs.forEach((blob, i) => {
-        const speed = (i + 1) * 0.07;
-        blob.style.transform = `translateY(${scrollY * speed}px)`;
-      });
-      ticking = false;
-    });
-    ticking = true;
-  }, { passive: true });
-}
-
-/* ============================================================
-   MOUSE PARALLAX — Subtle depth on hero section
-   ============================================================ */
-function initMouseParallax() {
-  const heroSection = document.querySelector('.hero');
-  if (!heroSection) return;
-
-  let lastX = 0, lastY = 0;
-  let ticking = false;
-
-  document.addEventListener('mousemove', (e) => {
-    lastX = e.clientX;
-    lastY = e.clientY;
-    if (ticking) return;
-
-    requestAnimationFrame(() => {
-      const x = (lastX / window.innerWidth  - 0.5) * 20;
-      const y = (lastY / window.innerHeight - 0.5) * 12;
-
-      document.querySelectorAll('.hero__blob').forEach((blob, i) => {
-        const factor = (i + 1) * 0.35;
-        blob.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-      });
-      ticking = false;
-    });
-    ticking = true;
-  });
-}
-
-/* ============================================================
-   TILT EFFECT — Cards get a 3D tilt on mouse move
-   ============================================================ */
-function initTiltCards() {
-  const tiltSelectors = [
-    '.project-card',
-    '.skill-category',
-    '.achievement-card',
-    '.info-card',
-    '.value-card',
-    '.home-blog-card',
-  ].join(', ');
-
-  const cards = document.querySelectorAll(tiltSelectors);
-  if (!cards.length) return;
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const cx   = rect.width  / 2;
-      const cy   = rect.height / 2;
-      const x    = e.clientX - rect.left;
-      const y    = e.clientY - rect.top;
-
-      const rotX = ((y - cy) / cy) * -5;
-      const rotY = ((x - cx) / cx) *  5;
-
-      card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-5px)`;
-      card.style.transition = 'transform 0.05s linear';
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-      card.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-      setTimeout(() => { card.style.transition = ''; }, 500);
-    });
-  });
-}
-
-/* Make it globally accessible so project/blog renderers can re-call it */
-window.initTiltCards = initTiltCards;
-
-/* ============================================================
-   MAGNETIC BUTTON — Buttons follow cursor slightly
-   ============================================================ */
-function initMagneticButtons() {
-  const magnetics = document.querySelectorAll('.btn--primary, .btn--outline');
-
-  magnetics.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x    = (e.clientX - rect.left - rect.width  / 2) * 0.18;
-      const y    = (e.clientY - rect.top  - rect.height / 2) * 0.22;
-      btn.style.transform  = `translate(${x}px, ${y}px)`;
-      btn.style.transition = 'transform 0.12s ease';
-    });
-
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform  = '';
-      btn.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), all 0.25s ease';
-    });
-  });
-}
+/* Tilt cards compatibility dummy for dynamic re-renders */
+window.initTiltCards = function() {};
 
 /* ============================================================
    COUNTER ANIMATION — Animated number counters
@@ -242,58 +124,29 @@ function initCounters() {
       const target = parseInt(el.getAttribute('data-count'), 10);
       const suffix = el.getAttribute('data-suffix') || '';
       let current  = 0;
-      const total  = 60; // animation steps
+      const total  = 40;
       const step   = Math.ceil(target / total);
 
       const timer = setInterval(() => {
         current = Math.min(current + step, target);
         el.textContent = current + suffix;
         if (current >= target) clearInterval(timer);
-      }, 28);
+      }, 25);
 
       observer.unobserve(el);
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.3 });
 
   counters.forEach(c => observer.observe(c));
 }
 
 /* ============================================================
-   ACTIVE NAV ON SCROLL (highlight section in viewport)
-   ============================================================ */
-function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
-  if (!sections.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id    = entry.target.getAttribute('id');
-        const links = document.querySelectorAll(`.navbar__link[href="#${id}"]`);
-        links.forEach(l => l.classList.add('active'));
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => observer.observe(s));
-}
-
-/* ============================================================
-   INITIALISE ALL ON DOM READY
+   INITIALISE ON DOM READY
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  // Respect prefers-reduced-motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   initScrollReveal();
   initStaggerAnimations();
   initTypingEffect();
   initCounters();
-
-  if (!prefersReducedMotion) {
-    initScrollParallax();
-    initMouseParallax();
-    initTiltCards();
-    initMagneticButtons();
-  }
 });
+
