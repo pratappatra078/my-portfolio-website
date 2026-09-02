@@ -1,0 +1,148 @@
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    title: 'Getting Started with Data Structures: Arrays & Linked Lists',
+    category: 'DSA',
+    excerpt:
+      'A beginner-friendly guide to understanding arrays and linked lists in C++, with time complexity analysis and practical real-world examples.',
+    date: 'July 10, 2026',
+    readTime: '8 min',
+    emoji: '🧮',
+    featured: true,
+    tags: ['C++', 'DSA', 'Arrays', 'Linked Lists'],
+  },
+  {
+    id: 2,
+    title: 'CSS Flexbox vs Grid: When to Use Which',
+    category: 'CSS Tricks',
+    excerpt:
+      'A practical comparison of CSS Flexbox and Grid layout systems, with real-world code examples and decision-making tips for modern layouts.',
+    date: 'July 5, 2026',
+    readTime: '6 min',
+    emoji: '🎨',
+    featured: false,
+    tags: ['CSS', 'Flexbox', 'Grid', 'Layout'],
+  },
+  {
+    id: 3,
+    title: 'JavaScript Promises & Async/Await Explained',
+    category: 'JavaScript Tips',
+    excerpt:
+      'Demystifying asynchronous JavaScript with clear explanations, practical patterns, and common pitfalls when handling async operations.',
+    date: 'July 1, 2026',
+    readTime: '10 min',
+    emoji: '⚡',
+    featured: false,
+    tags: ['JavaScript', 'Async', 'Promises', 'ES6'],
+  },
+  {
+    id: 4,
+    title: 'Git & GitHub: Essential Commands Every Dev Should Know',
+    category: 'Git & GitHub',
+    excerpt:
+      'Master the most important Git commands, branching strategies, and GitHub workflow for clean, professional software development.',
+    date: 'June 25, 2026',
+    readTime: '7 min',
+    emoji: '🔧',
+    featured: false,
+    tags: ['Git', 'GitHub', 'Version Control', 'CLI'],
+  },
+  {
+    id: 5,
+    title: 'My Coding Journey: From Zero to CSE Student',
+    category: 'Coding Journey',
+    excerpt:
+      'A personal story about how I discovered programming, the challenges I faced, the lessons I learned, and what drives me every day.',
+    date: 'June 20, 2026',
+    readTime: '5 min',
+    emoji: '🚀',
+    featured: false,
+    tags: ['Personal', 'Journey', 'Motivation', 'Story'],
+  },
+  {
+    id: 6,
+    title: 'Operating System Concepts: Processes & Threads',
+    category: 'Operating Systems',
+    excerpt:
+      'Deep dive into OS fundamentals — processes, threads, scheduling algorithms, and inter-process communication with illustrated examples.',
+    date: 'June 15, 2026',
+    readTime: '12 min',
+    emoji: '💻',
+    featured: false,
+    tags: ['OS', 'Processes', 'Threads', 'Scheduling'],
+  },
+  {
+    id: 7,
+    title: 'Database Design: Normalization & SQL Best Practices',
+    category: 'DBMS',
+    excerpt:
+      'Learn the art of database normalization from 1NF to BCNF, with practical schema examples and SQL query optimization techniques.',
+    date: 'June 10, 2026',
+    readTime: '9 min',
+    emoji: '🗄️',
+    featured: false,
+    tags: ['SQL', 'Database', 'Normalization', 'DBMS'],
+  },
+  {
+    id: 8,
+    title: 'HTML Semantic Elements: Why They Matter for SEO & A11y',
+    category: 'HTML Best Practices',
+    excerpt:
+      'Why semantic HTML is crucial for search engine optimization, screen readers, and maintaining clean, maintainable codebases.',
+    date: 'June 5, 2026',
+    readTime: '5 min',
+    emoji: '📋',
+    featured: false,
+    tags: ['HTML', 'SEO', 'Accessibility', 'Semantic'],
+  },
+  {
+    id: 9,
+    title: 'Cracking Coding Interviews: My LeetCode Strategy',
+    category: 'Interview Preparation',
+    excerpt:
+      'My personal strategy for coding interview prep — which topics to prioritize, how to practice on LeetCode, and the right mindset.',
+    date: 'May 30, 2026',
+    readTime: '8 min',
+    emoji: '💡',
+    featured: false,
+    tags: ['LeetCode', 'Interview', 'DSA', 'Career'],
+  },
+  {
+    id: 10,
+    title: 'Computer Networks: TCP/IP Protocol Suite Explained',
+    category: 'Computer Networks',
+    excerpt:
+      'Breaking down the TCP/IP model, how data travels across networks, and key protocols every Computer Science student must understand.',
+    date: 'May 25, 2026',
+    readTime: '11 min',
+    emoji: '🌐',
+    featured: false,
+    tags: ['Networking', 'TCP/IP', 'Protocols', 'CN'],
+  },
+  {
+    id: 11,
+    title: 'Introduction to Machine Learning: Core Concepts',
+    category: 'AI & Machine Learning',
+    excerpt:
+      'A beginner-friendly introduction to ML — supervised vs. unsupervised learning, common algorithms, and where to start your AI journey.',
+    date: 'May 20, 2026',
+    readTime: '9 min',
+    emoji: '🤖',
+    featured: false,
+    tags: ['ML', 'AI', 'Python', 'Algorithms'],
+  },
+  {
+    id: 12,
+    title: "Open Source Contribution: A Beginner's Complete Guide",
+    category: 'Open Source',
+    excerpt:
+      'How to make your first open source contribution — finding projects, reading codebases, submitting pull requests, and building your profile.',
+    date: 'May 15, 2026',
+    readTime: '7 min',
+    emoji: '🌱',
+    featured: false,
+    tags: ['Open Source', 'GitHub', 'Contributing', 'Community'],
+  },
+]
+
+export const ALL_CATEGORIES = ['All', ...new Set(BLOG_POSTS.map((p) => p.category))]
