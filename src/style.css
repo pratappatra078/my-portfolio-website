@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #FF6B1A;
+  --color-accent: #F95F0F;
   --color-accent-dark: #FF8A4A;
-  --color-accent-soft: rgba(255, 107, 26, 0.08);
-  --color-accent-soft-dark: rgba(255, 107, 26, 0.12);
+  --color-accent-soft: rgba(249, 95, 15, 0.08);
+  --color-accent-soft-dark: rgba(255, 138, 74, 0.12);
 
-  --color-ink: #111111;
-  --color-ink-2: #444444;
-  --color-ink-3: #777777;
-  --color-ink-dark: #F0F0F0;
-  --color-ink-2-dark: #BBBBBB;
-  --color-ink-3-dark: #888888;
+  --color-ink: #101014;
+  --color-ink-2: #4A4A55;
+  --color-ink-3: #8A8A96;
+  --color-ink-dark: #F2F2F5;
+  --color-ink-2-dark: #B8B8C4;
+  --color-ink-3-dark: #81818C;
 
-  --color-bg: #F4F6FB;
-  --color-bg-soft: rgba(255, 255, 255, 0.55);
-  --color-bg-dark: #0F0F12;
-  --color-bg-soft-dark: #16161A;
+  --color-bg: #F6F6F9;
+  --color-bg-soft: #EDEDF2;
+  --color-bg-dark: #0E0E12;
+  --color-bg-soft-dark: #15151B;
 
-  --color-card: rgba(255, 255, 255, 0.55);
-  --color-card-dark: #1A1A1F;
+  --color-card: rgba(255, 255, 255, 0.6);
+  --color-card-dark: #1B1B22;
 
-  --color-border: rgba(255, 107, 26, 0.12);
-  --color-border-dark: #2A2A30;
+  --color-border: #E3E3EA;
+  --color-border-dark: #2A2A33;
 
-  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  --shadow-soft: 0 4px 18px rgba(17, 17, 17, 0.06);
-  --shadow-lift: 0 12px 32px rgba(17, 17, 17, 0.08);
+  --shadow-soft: 0 4px 18px rgba(16, 16, 24, 0.05);
+  --shadow-lift: 0 16px 40px rgba(16, 16, 24, 0.08);
 }
 
 html {
@@ -39,37 +39,36 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-ink);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(255, 107, 26, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(132, 90, 255, 0.15), transparent 45%),
-    radial-gradient(circle at 70% 75%, rgba(255, 138, 74, 0.12), transparent 40%),
-    radial-gradient(circle at 25% 80%, rgba(64, 156, 255, 0.12), transparent 45%);
+    radial-gradient(circle at 12% 8%, rgba(249, 95, 15, 0.10), transparent 42%),
+    radial-gradient(circle at 88% 18%, rgba(120, 130, 220, 0.10), transparent 40%),
+    radial-gradient(circle at 65% 88%, rgba(249, 95, 15, 0.06), transparent 45%);
   background-attachment: fixed;
 }
 
 .dark body {
-  background: var(--color-bg-dark);
+  background-color: var(--color-bg-dark);
   color: var(--color-ink-dark);
   background-image: none;
 }
 
-/* ─── Frosted Glass Card ─── */
+/* ─── Glass Surfaces ─── */
 
 .glass-card {
   background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-soft);
 }
 
 .glass-section {
   background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
@@ -85,15 +84,15 @@ body {
 }
 
 .reveal {
-  transform: translateY(28px);
+  transform: translateY(24px);
 }
 
 .reveal-left {
-  transform: translateX(-28px);
+  transform: translateX(-24px);
 }
 
 .reveal-right {
-  transform: translateX(28px);
+  transform: translateX(24px);
 }
 
 .reveal.revealed,
@@ -112,7 +111,7 @@ body {
   height: 3px;
   width: 0;
   z-index: 9999;
-  background: linear-gradient(90deg, var(--color-accent), #FF8A4A);
+  background: linear-gradient(90deg, var(--color-accent), #FF9A4A);
   pointer-events: none;
 }
 
@@ -120,19 +119,19 @@ body {
 
 .scroll-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.75rem;
+  right: 1.75rem;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border-radius: 12px;
+  border: 1px solid rgba(16, 16, 24, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--color-ink);
   font-size: 1.1rem;
   cursor: pointer;
@@ -141,11 +140,6 @@ body {
   transform: translateY(10px);
   transition: all 0.3s ease;
   box-shadow: var(--shadow-soft);
-}
-
-.dark .scroll-top {
-  background: var(--color-card-dark);
-  border-color: var(--color-border-dark);
 }
 
 .scroll-top.visible {
@@ -159,7 +153,12 @@ body {
   color: #fff;
   border-color: var(--color-accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 26, 0.3);
+  box-shadow: 0 8px 20px rgba(249, 95, 15, 0.3);
+}
+
+.dark .scroll-top {
+  background: rgba(27, 27, 34, 0.7);
+  border-color: var(--color-border-dark);
 }
 
 /* ─── Loader ─── */
@@ -204,7 +203,7 @@ body {
 
 .loader__bar {
   width: 140px;
-  height: 4px;
+  height: 3px;
   border-radius: 2px;
   background: var(--color-border);
   overflow: hidden;
@@ -213,13 +212,13 @@ body {
 .loader__bar-fill {
   height: 100%;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-accent), #FF8A4A);
+  background: linear-gradient(90deg, var(--color-accent), #FF9A4A);
   animation: loader-fill 1.8s ease forwards;
 }
 
 @keyframes loader-fill {
   0% { width: 0; }
-  60% { width: 70%; }
+  60% { width: 72%; }
   100% { width: 100%; }
 }
 

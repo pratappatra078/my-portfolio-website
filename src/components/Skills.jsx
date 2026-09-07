@@ -1,30 +1,33 @@
 import { SKILLS } from '../data/portfolioData'
+import TechLogo from './TechLogo'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
 
-export default function Skills() {
+export default function Skills({ limit }) {
+  const skills = limit ? SKILLS.slice(0, limit) : SKILLS
+
   return (
-    <section className="py-28" id="skills">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="py-24" id="skills">
+      <div className="mx-auto max-w-5xl px-6">
         <SectionHeader
           tag="Skills & Technologies"
-          title="Tools I work with daily."
-          sub="A curated set of languages and technologies I use to build robust, scalable products."
+          title="Tools I work with."
+          sub="A focused set of languages and technologies I use to build robust products."
         />
 
-        <div className="mt-16 grid grid-cols-3 gap-5 sm:grid-cols-5">
-          {SKILLS.map((skill, i) => (
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {skills.map((skill, i) => (
             <Reveal
               key={skill.name}
-              delay={i * 60}
-              className="group flex flex-col items-center justify-center rounded-2xl border border-white/60 bg-white/50 p-7 text-center shadow-[0_8px_30px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-accent/50 hover:shadow-[0_16px_40px_rgba(255,107,26,0.2)] dark:border-border-dark dark:bg-card-dark dark:shadow-none dark:hover:border-accent-dark"
+              delay={(i % 4) * 60}
+              className="group flex items-center gap-3.5 rounded-xl border border-ink/8 bg-white/55 px-4 py-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-accent-soft dark:border-border-dark dark:bg-card-dark dark:hover:border-accent-dark"
             >
-              <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-soft text-[2.6rem] leading-none transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 dark:bg-accent-soft-dark">
-                {skill.icon}
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-ink/5 dark:bg-white/95">
+                <TechLogo name={skill.name} size={22} />
               </span>
-              <div className="font-heading text-[0.98rem] font-bold text-ink dark:text-ink-dark">
+              <span className="font-heading text-[0.98rem] font-bold text-ink dark:text-ink-dark">
                 {skill.name}
-              </div>
+              </span>
             </Reveal>
           ))}
         </div>

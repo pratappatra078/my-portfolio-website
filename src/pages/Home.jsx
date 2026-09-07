@@ -1,470 +1,151 @@
 import { Link } from 'react-router-dom'
-import Counter from '../components/Counter'
-import TypedText from '../components/TypedText'
+import Hero from '../components/Hero'
 import Reveal from '../components/Reveal'
-import SectionHeader from '../components/SectionHeader'
-import { SITE, SOCIALS } from '../data/site.jsx'
+import { SITE, SKILLS } from '../data/portfolioData'
+import TechLogo from '../components/TechLogo'
 
-const SKILLS = [
+const OVERVIEW = [
   {
-    icon: '💻',
-    title: 'Languages',
-    tags: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'TypeScript'],
+    to: '/about',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+    ),
+    title: 'About me',
+    text: 'My journey from first lines of code to building full-stack applications.',
   },
   {
-    icon: '🎨',
-    title: 'Frontend',
-    tags: ['HTML5', 'CSS3', 'React.js', 'Tailwind CSS', 'Responsive Design'],
+    to: '/work',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" /></svg>
+    ),
+    title: 'My work',
+    text: 'Projects I have built, plus my coding activity across platforms.',
   },
   {
-    icon: '🛠️',
-    title: 'Tools',
-    tags: ['Git', 'GitHub', 'VS Code', 'Linux', 'Vite'],
+    to: '/blog',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>
+    ),
+    title: 'Blog',
+    text: 'Notes from learning HTML, CSS, JavaScript, Tailwind, and React.',
   },
   {
-    icon: '🧠',
-    title: 'Soft Skills',
-    tags: ['Problem Solving', 'Team Work', 'Communication', 'Fast Learner', 'Adaptability'],
-  },
-]
-
-const INFO_CARDS = [
-  {
-    icon: '🎯',
-    title: 'Problem Solver',
-    desc: 'Love cracking algorithmic challenges and building efficient, optimized solutions.',
-  },
-  {
-    icon: '📚',
-    title: 'Lifelong Learner',
-    desc: 'Continuously expanding my knowledge across CS fundamentals and new technologies.',
-  },
-  {
-    icon: '🚀',
-    title: 'Builder',
-    desc: 'Turning ideas into real, functional, and user-friendly digital applications.',
-  },
-  {
-    icon: '🤝',
-    title: 'Team Player',
-    desc: 'Thrive in collaborative environments and open source development communities.',
+    to: '/contact',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+    ),
+    title: 'Contact',
+    text: 'Reach me on LinkedIn, GitHub, Instagram, WhatsApp, and more.',
   },
 ]
-
-const TIMELINE = [
-  {
-    date: '2024 — Present',
-    title: 'B.Tech in Computer Science Engineering',
-    sub: 'Brainware University [Barasat, North 24 Parganas]',
-    current: true,
-    desc: 'Currently in 3rd year studying Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, and Object-Oriented Programming. Focused on software development and competitive programming.',
-  },
-  {
-    date: '2022 — 2024',
-    title: 'Higher Secondary (12th) — Science Stream',
-    sub: 'Ramjibanpur Babulal Institution [Ramjibanpur, Paschim Medinipur]',
-    desc: 'Completed 12th grade with Physics, Chemistry, Mathematics & Computer Applications. Scored [77.8]% marks. Developed a deep interest in computer science during this period.',
-  },
-  {
-    date: '2020 — 2022',
-    title: 'Secondary Education (10th)',
-    sub: 'Srinagar High School [Srinagar, Paschim Medinipur]',
-    desc: 'Completed 10th grade securing [72.2]% marks. Built a strong foundation in mathematics and sciences.',
-  },
-]
-
-const ACHIEVEMENTS = [
-  {
-    icon: '⚔️',
-    title: 'DSA Journey',
-    desc: 'Actively solving Data Structures & Algorithms problems daily on LeetCode and GeeksforGeeks, building strong problem-solving fundamentals.',
-    link: { label: 'View LeetCode Profile →', href: 'https://leetcode.com/u/pratappatra078/', external: true },
-  },
-  {
-    icon: '🐙',
-    title: 'GitHub Activity',
-    desc: 'Maintaining an active GitHub profile with 15+ repositories, consistent commits, and contributions to open source projects.',
-    link: { label: 'View GitHub Profile →', href: 'https://github.com/pratappatra078', external: true },
-  },
-  {
-    icon: '💡',
-    title: '15+ Projects Built',
-    desc: 'Built 15+ projects spanning web development, command-line tools, and full-stack applications using multiple languages and frameworks.',
-    link: { label: 'See All Projects →', href: '/projects', external: false },
-  },
-]
-
-const BLOG_PREVIEWS = [
-  {
-    cat: 'DSA',
-    title: 'Getting Started with Data Structures: Arrays & Linked Lists',
-    date: '📅 July 10, 2026',
-    time: '⏱ 8 min read',
-  },
-  {
-    cat: 'CSS Tricks',
-    title: 'CSS Flexbox vs Grid: When to Use Which',
-    date: '📅 July 5, 2026',
-    time: '⏱ 6 min read',
-  },
-  {
-    cat: 'JavaScript Tips',
-    title: 'JavaScript Promises & Async/Await Explained',
-    date: '📅 July 1, 2026',
-    time: '⏱ 10 min read',
-  },
-]
-
-function DownloadIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" y1="15" x2="12" y2="3" />
-    </svg>
-  )
-}
-
-function CodeIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <rect x="2" y="3" width="20" height="14" rx="2" />
-      <path d="m8 21 4-4 4 4" />
-      <path d="M12 17v4" />
-    </svg>
-  )
-}
-
-function MailIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  )
-}
-
-function LinkedinIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  )
-}
-
-function Hero() {
-  return (
-    <section className="hero" id="hero" aria-label="Hero — Introduction">
-      <div className="hero__blobs" aria-hidden="true">
-        <div className="hero__blob hero__blob--1" />
-        <div className="hero__blob hero__blob--2" />
-        <div className="hero__blob hero__blob--3" />
-      </div>
-
-      <div className="container">
-        <div className="hero__grid">
-          <Reveal className="hero__content" delay={80}>
-            <div className="hero__eyebrow">
-              <span className="hero__eyebrow-dot" aria-hidden="true" />
-              Open to Internships &amp; Opportunities · 2026
-            </div>
-
-            <h1 className="hero__headline">
-              Hi, I'm <br />
-              <span className="name">{SITE.name}</span>
-            </h1>
-
-            <div className="hero__typed-wrap" aria-live="polite" aria-atomic="true">
-              <span style={{ color: 'var(--color-text-2)' }}>I'm a</span>
-              <TypedText />
-              <span className="typed-cursor" aria-hidden="true" />
-            </div>
-
-            <p className="hero__desc">
-              A 3rd-year <strong>B.Tech Computer Science Engineering</strong> student passionate
-              about <strong>software development</strong>, <strong>data structures &amp;
-              algorithms</strong>, and building full-stack solutions that create real-world impact.
-            </p>
-
-            <div className="hero__cta">
-              <a href={SITE.resume} download className="btn btn--primary btn--lg" aria-label="Download Pratap Patra's resume PDF">
-                <DownloadIcon />
-                Download Resume
-              </a>
-              <Link to="/projects" className="btn btn--outline btn--lg" aria-label="View my projects">
-                <CodeIcon />
-                View Projects
-              </Link>
-              <Link to="/about" className="btn btn--ghost btn--lg" aria-label="About me">
-                <MailIcon />
-                About Me
-              </Link>
-            </div>
-
-            <div className="hero__stats" aria-label="Key statistics">
-              <div>
-                <Counter target={15} suffix="+" className="hero__stat-value" />
-                <div className="hero__stat-label">Projects Built</div>
-              </div>
-              <div>
-                <Counter target={6} suffix="+" className="hero__stat-value" />
-                <div className="hero__stat-label">Languages</div>
-              </div>
-              <div>
-                <div className="hero__stat-value">3rd</div>
-                <div className="hero__stat-label">Year CSE</div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal className="hero__image-wrap" direction="reveal-right" delay={160} aria-hidden="true">
-            <div className="hero__image-ring">
-              <div className="hero__image-ring-dot" />
-            </div>
-            <div className="hero__image-frame">
-              <img
-                src={SITE.profileImage}
-                alt="Pratap Patra — Computer Science Student"
-                width="320"
-                height="400"
-                loading="eager"
-                fetchPriority="high"
-              />
-              <div className="hero__image-tag">
-                <span className="dot" />
-                <span>Available for Internships</span>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Skills() {
-  return (
-    <section className="skills section" id="skills" aria-label="Skills and Technologies">
-      <div className="container">
-        <SectionHeader
-          eyebrow="⚡ Technical Expertise"
-          title={<>Skills &amp; <span>Technologies</span></>}
-          subtitle="A curated stack of languages, tools, and technologies I use to build things that matter."
-        />
-
-        <div className="skills__grid">
-          {SKILLS.map((cat, i) => (
-            <Reveal key={cat.title} className="skill-category" delay={i * 90}>
-              <span className="skill-category__icon" aria-hidden="true">{cat.icon}</span>
-              <h3 className="skill-category__title">{cat.title}</h3>
-              <div className="skill-tags" role="list" aria-label={`${cat.title} technologies`}>
-                {cat.tags.map((t) => (
-                  <span className="skill-tag" role="listitem" key={t}>{t}</span>
-                ))}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function HomeAbout() {
-  return (
-    <section className="home-about section" id="about" aria-label="About Me — Overview">
-      <div className="container">
-        <div className="home-about__grid">
-          <Reveal direction="reveal-left">
-            <div className="section-eyebrow">🙋 About Me</div>
-            <h2 className="home-about__title">
-              Passionate about building things that <span className="gradient-text">matter</span>
-            </h2>
-            <p className="home-about__desc">
-              I'm Pratap Patra, a 3rd-year Computer Science Engineering student with a strong
-              passion for software engineering, problem-solving, and creating meaningful digital
-              experiences.
-            </p>
-            <p className="home-about__desc">
-              I believe in learning by doing — every project I build teaches me something new,
-              whether it's a design pattern, a system concept, or a smarter way to write code.
-            </p>
-
-            <div className="home-about__passions" aria-label="Areas of passion">
-              {['🔥 DSA', '🌐 Full Stack', '🤖 AI/ML', '🗄️ DBMS', '🖥️ OS', '📡 Networks', '☕ Java OOP', '🐍 Python'].map((p) => (
-                <span className="passion-tag" key={p}>{p}</span>
-              ))}
-            </div>
-
-            <Link to="/about" className="btn btn--primary" style={{ marginTop: '1.5rem' }} aria-label="Read my full story on About page">
-              Read My Full Story →
-            </Link>
-          </Reveal>
-
-          <Reveal direction="reveal-right" delay={100} className="home-about__visual">
-            <div className="home-about__card-grid">
-              {INFO_CARDS.map((card) => (
-                <div className="info-card" key={card.title}>
-                  <span className="info-card__icon" aria-hidden="true">{card.icon}</span>
-                  <div className="info-card__title">{card.title}</div>
-                  <div className="info-card__desc">{card.desc}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Education() {
-  return (
-    <section className="education section" id="education" aria-label="Education Timeline">
-      <div className="container">
-        <SectionHeader
-          eyebrow="🎓 Academic Background"
-          title={<>My <span>Education</span></>}
-          subtitle="The academic journey that built my technical foundation."
-        />
-
-        <div className="timeline">
-          {TIMELINE.map((item, i) => (
-            <Reveal as="article" key={item.title} className="timeline__item" delay={i * 90}>
-              <div className={`timeline__dot${item.current ? ' current' : ''}`} aria-label={item.current ? 'Current education' : undefined} />
-              <div className="timeline__date">{item.date}</div>
-              <h3 className="timeline__title">{item.title}</h3>
-              <p className="timeline__sub">{item.sub}</p>
-              <p className="timeline__desc">{item.desc}</p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Achievements() {
-  return (
-    <section className="achievements section" id="achievements" aria-label="Achievements and Milestones">
-      <div className="container">
-        <SectionHeader
-          eyebrow="🏆 Milestones"
-          title={<>Achievements &amp; <span>Progress</span></>}
-          subtitle="Coding milestones, competitive programming, and certifications I'm proud of."
-        />
-
-        <div className="achievements__grid">
-          {ACHIEVEMENTS.map((a, i) => (
-            <Reveal as="article" key={a.title} className="achievement-card" delay={i * 100}>
-              <span className="achievement-card__icon" aria-hidden="true">{a.icon}</span>
-              <h3 className="achievement-card__title">{a.title}</h3>
-              <p className="achievement-card__desc">{a.desc}</p>
-              {a.link.external ? (
-                <a href={a.link.href} target="_blank" rel="noopener noreferrer" className="platform-link">
-                  {a.link.label}
-                </a>
-              ) : (
-                <Link to={a.link.href} className="platform-link">
-                  {a.link.label}
-                </Link>
-              )}
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function HomeBlog() {
-  return (
-    <section className="home-blog section" id="blog-preview" aria-label="Recent Blog Posts">
-      <div className="container">
-        <SectionHeader
-          eyebrow="✍️ From My Blog"
-          title={<>Recent <span>Articles</span></>}
-          subtitle="Thoughts, tutorials, and learnings from my coding journey."
-        />
-
-        <div className="home-blog__grid">
-          {BLOG_PREVIEWS.map((post, i) => (
-            <Reveal key={post.title} delay={i * 100}>
-              <Link
-                to="/blog"
-                className="home-blog-card"
-                style={{ height: '100%' }}
-                aria-label={`Read: ${post.title}`}
-              >
-                <div className="home-blog-card__cat">{post.cat}</div>
-                <h3 className="home-blog-card__title">{post.title}</h3>
-                <div className="home-blog-card__meta">
-                  <span>{post.date}</span>
-                  <span>{post.time}</span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-          <Reveal>
-            <Link to="/blog" className="btn btn--outline btn--lg" aria-label="View all blog posts">
-              View All Posts →
-            </Link>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function ContactCTA() {
-  return (
-    <section className="home-cta section" id="contact" aria-label="Contact Call to Action">
-      <div className="container">
-        <Reveal className="home-cta__card">
-          <h2 className="home-cta__title">
-            Let's Build Something <span className="gradient-text">Amazing</span> Together
-          </h2>
-          <p className="home-cta__desc">
-            I'm actively looking for internship opportunities and exciting projects. Whether you
-            have an opportunity or just want to connect — let's talk!
-          </p>
-          <div className="home-cta__buttons">
-            <a href={`mailto:${SITE.email}`} className="btn btn--primary btn--lg" aria-label="Send me an email">
-              <MailIcon />
-              Send Me an Email
-            </a>
-            <a
-              href={SOCIALS.find((s) => s.label === 'LinkedIn').href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--outline btn--lg"
-              aria-label="Connect on LinkedIn"
-            >
-              <LinkedinIcon />
-              Connect on LinkedIn
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Skills />
-      <HomeAbout />
-      <Education />
-      <Achievements />
-      <HomeBlog />
-      <ContactCTA />
+
+      <section className="py-24" id="overview">
+        <div className="mx-auto max-w-5xl px-6">
+          <Reveal className="text-center">
+            <span className="font-heading text-sm font-bold uppercase tracking-[0.14em] text-accent dark:text-accent-dark">
+              Overview
+            </span>
+            <h2 className="mx-auto mt-4 max-w-2xl font-heading text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl dark:text-ink-dark">
+              Everything about me, in one place.
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-base text-ink-2 dark:text-ink-2-dark">
+              Jump into any section to explore the details.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {OVERVIEW.map((card, i) => (
+              <Reveal key={card.to} delay={i * 80}>
+                <Link
+                  to={card.to}
+                  className="group flex h-full flex-col rounded-2xl border border-ink/8 bg-white/55 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:bg-accent-soft dark:border-border-dark dark:bg-card-dark dark:hover:border-accent-dark"
+                >
+                  <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-accent shadow-sm ring-1 ring-ink/5 transition-transform duration-300 group-hover:scale-110 dark:bg-white/95 dark:text-accent-dark">
+                    {card.icon}
+                  </span>
+                  <h3 className="font-heading text-lg font-bold text-ink dark:text-ink-dark">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-2 dark:text-ink-2-dark">
+                    {card.text}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all duration-300 group-hover:gap-3 dark:text-accent-dark">
+                    Explore
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-24" id="tech">
+        <div className="mx-auto max-w-5xl px-6">
+          <Reveal className="rounded-2xl border border-ink/8 bg-white/55 p-8 backdrop-blur-md sm:p-10 dark:border-border-dark dark:bg-card-dark">
+            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-heading text-xl font-bold text-ink dark:text-ink-dark">
+                  Tech I work with
+                </h3>
+                <p className="mt-1 text-sm text-ink-2 dark:text-ink-2-dark">
+                  The languages and tools behind my projects.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2.5">
+                {SKILLS.slice(0, 8).map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 py-1.5 pl-2 pr-4 text-sm font-semibold text-ink dark:border-border-dark dark:bg-white/95 dark:text-ink-dark dark:border-ink-dark/10"
+                  >
+                    <TechLogo name={skill.name} size={16} />
+                    {skill.name}
+                  </span>
+                ))}
+                <Link
+                  to="/work"
+                  className="rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-white shadow-[0_4px_12px_rgba(249,95,15,0.3)] transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  View everything
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <Reveal className="mb-10 text-center">
+            <h2 className="font-heading text-2xl font-bold text-ink sm:text-3xl dark:text-ink-dark">
+              Have a project in mind?
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-base text-ink-2 dark:text-ink-2-dark">
+              I'm open to internships, freelance work, and collaborations.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3.5">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-[0.95rem] font-semibold text-white shadow-[0_6px_18px_rgba(249,95,15,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(249,95,15,0.4)]"
+              >
+                Get in touch
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/60 px-7 py-3.5 text-[0.95rem] font-semibold text-ink backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-border-dark dark:bg-card-dark dark:text-ink-dark"
+              >
+                {SITE.email}
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   )
 }

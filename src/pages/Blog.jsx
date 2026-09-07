@@ -1,257 +1,78 @@
-import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { BLOG_POSTS, SITE } from '../data/portfolioData'
 import Reveal from '../components/Reveal'
-import { BLOG_POSTS, ALL_CATEGORIES } from '../data/blog'
 
-function FeaturedPost({ post }) {
-  return (
-    <Reveal>
-      <a href="blog-post.html" className="featured-post" aria-label={`Read featured post: ${post.title}`}>
-        <div className="featured-post__image" aria-hidden="true" role="img" aria-label={`${post.title} illustration`}>
-          {post.emoji}
-        </div>
-        <div className="featured-post__body">
-          <div className="featured-post__tag">⭐ Featured · {post.category}</div>
-          <h2 className="featured-post__title">{post.title}</h2>
-          <p className="featured-post__excerpt">{post.excerpt}</p>
-          <div className="featured-post__meta">
-            <span>📅 {post.date}</span>
-            <span>⏱ {post.readTime} read</span>
-            <span style={{ marginTop: 6, display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-              {post.tags.map((t) => (
-                <span className="badge" key={t}>{t}</span>
-              ))}
-            </span>
-          </div>
-        </div>
-      </a>
-    </Reveal>
-  )
-}
-
-function BlogCard({ post, index }) {
-  return (
-    <Reveal delay={(index % 2) * 90}>
-      <a href="blog-post.html" className="blog-card" aria-label={`Read article: ${post.title}`}>
-        <div className="blog-card__image" aria-hidden="true">{post.emoji}</div>
-        <div className="blog-card__body">
-          <div className="blog-card__cat">{post.category}</div>
-          <h3 className="blog-card__title">{post.title}</h3>
-          <p className="blog-card__excerpt">{post.excerpt}</p>
-          <div className="blog-card__meta">
-            <span>📅 {post.date}</span>
-            <span>⏱ {post.readTime} read</span>
-          </div>
-        </div>
-      </a>
-    </Reveal>
-  )
-}
-
-function NewsletterCard() {
-  const [subscribed, setSubscribed] = useState(false)
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const input = e.currentTarget.querySelector('.newsletter-input')
-    if (!input?.value.trim()) return
-    input.value = ''
-    setSubscribed(true)
-    setTimeout(() => setSubscribed(false), 3500)
-  }
-
-  return (
-    <div className="newsletter-card">
-      <div className="newsletter-card__title">📬 Newsletter</div>
-      <p className="newsletter-card__desc">Get new articles delivered to your inbox. No spam — ever.</p>
-      <form className="newsletter-form" onSubmit={onSubmit} noValidate aria-label="Newsletter subscription">
-        <input
-          type="email"
-          className="newsletter-input"
-          placeholder="your@email.com"
-          aria-label="Email address for newsletter"
-          required
-        />
-        <button type="submit" className="btn btn--primary" style={{ width: '100%' }} disabled={subscribed}>
-          {subscribed ? '✅ Subscribed!' : 'Subscribe →'}
-        </button>
-      </form>
-    </div>
-  )
-}
+const CATEGORIES = ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'React']
 
 export default function Blog() {
-  const featured = useMemo(() => BLOG_POSTS.find((p) => p.featured), [])
-  const [category, setCategory] = useState('All')
-  const [query, setQuery] = useState('')
-
-  const filtered = useMemo(() => {
-    const q = query.toLowerCase()
-    return BLOG_POSTS.filter((p) => {
-      const matchCat = category === 'All' || p.category === category
-      const matchSearch =
-        !q ||
-        p.title.toLowerCase().includes(q) ||
-        p.excerpt.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q))
-      return matchCat && matchSearch
-    })
-  }, [category, query])
-
-  const allTags = useMemo(() => [...new Set(BLOG_POSTS.flatMap((p) => p.tags))], [])
-  const categoryCounts = useMemo(() => {
-    const counts = {}
-    BLOG_POSTS.forEach((p) => {
-      counts[p.category] = (counts[p.category] || 0) + 1
-    })
-    return counts
-  }, [])
-
-  const selectCategory = (cat) => {
-    setCategory(cat)
-    document.getElementById('blog-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
-  const onTagClick = (tag) => {
-    setQuery(tag)
-    setCategory('All')
-  }
-
   return (
     <>
-      <header className="blog-hero" aria-label="Blog page header">
-        <div className="container">
+      <section className="flex min-h-[38vh] items-end pb-8 pt-[84px]">
+        <div className="mx-auto w-full max-w-5xl px-6">
           <Reveal>
-            <div className="section-eyebrow">✍️ My Writing</div>
-          </Reveal>
-          <Reveal delay={60}>
-            <h1 className="blog-hero__title">
-              The <span className="gradient-text">Blog</span>
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.14em] text-accent dark:text-accent-dark">
+              Blog
+            </p>
+            <h1 className="mt-3 font-heading text-4xl font-extrabold tracking-tight text-ink sm:text-5xl dark:text-ink-dark">
+              What I'm learning.
             </h1>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="blog-hero__desc">
-              Thoughts, tutorials, and learnings from my journey as a CSE student — covering DSA,
-              web dev, OS, DBMS, networking, and everything in between.
+            <p className="mt-4 max-w-xl text-lg text-ink-2 dark:text-ink-2-dark">
+              My personal notes on web development — HTML, CSS, JavaScript, Tailwind CSS, and React.
+              Every post is a lesson I'm learning along the way.
             </p>
           </Reveal>
-
-          <Reveal delay={160}>
-            <div className="blog-search-wrap">
-              <span className="blog-search__icon" aria-hidden="true">🔍</span>
-              <input
-                type="search"
-                className="blog-search__input"
-                placeholder="Search articles by title, topic, or tag..."
-                aria-label="Search blog articles"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Escape') setQuery('')
-                }}
-                autoComplete="off"
-              />
-            </div>
-          </Reveal>
-
-          <div className="blog-categories" role="group" aria-label="Article category filters">
-            {ALL_CATEGORIES.map((cat) => (
-              <button
+          <Reveal delay={100} className="mt-6 flex flex-wrap items-center gap-2">
+            {CATEGORIES.map((cat) => (
+              <span
                 key={cat}
-                type="button"
-                className={`cat-pill${category === cat ? ' active' : ''}`}
-                aria-pressed={category === cat}
-                onClick={() => setCategory(cat)}
+                className="rounded-full border border-ink/10 bg-white/60 px-3.5 py-1 text-xs font-semibold text-ink-2 backdrop-blur-md dark:border-border-dark dark:bg-card-dark dark:text-ink-2-dark"
               >
                 {cat}
-              </button>
+              </span>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="grid gap-5 sm:grid-cols-2">
+            {BLOG_POSTS.map((post, i) => (
+              <Reveal key={post.slug} delay={(i % 2) * 80}>
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="group flex h-full flex-col rounded-xl border border-ink/10 bg-white/55 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_12px_30px_rgba(16,16,24,0.06)] dark:border-border-dark dark:bg-card-dark"
+                >
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent dark:bg-accent-soft-dark dark:text-accent-dark">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-ink-3 dark:text-ink-3-dark">
+                      {post.date} · {post.readTime}
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-lg font-bold leading-snug text-ink transition-colors group-hover:text-accent dark:text-ink-dark dark:group-hover:text-accent-dark">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2.5 flex-1 text-sm leading-relaxed text-ink-2 dark:text-ink-2-dark">
+                    {post.excerpt}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-all duration-300 group-hover:gap-3 dark:text-accent-dark">
+                    Read post
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-14">
+            <p className="text-center text-sm text-ink-3 dark:text-ink-3-dark">
+              Ideas or feedback? <a href={`mailto:${SITE.email}`} className="font-semibold text-accent decoration-accent/30 underline underline-offset-4 dark:text-accent-dark">Let's discuss.</a>
+            </p>
+          </Reveal>
         </div>
-      </header>
-
-      <div className="container" style={{ paddingBottom: 'var(--sp-16)' }}>
-        <div className="blog-layout">
-          <div className="blog-main">
-            <div className="blog-featured" aria-label="Featured article">
-              <div className="blog-section-title">⭐ Featured Article</div>
-              {featured && <FeaturedPost post={featured} />}
-            </div>
-
-            <div aria-label="Latest articles">
-              <div className="blog-section-title">🕒 Latest Articles</div>
-              <div className="blog-grid" id="blog-grid" aria-live="polite" aria-label="Blog articles">
-                {filtered.length === 0 ? (
-                  <div className="blog-empty">
-                    <h3>No articles found</h3>
-                    <p>Try a different category or search term.</p>
-                  </div>
-                ) : (
-                  filtered.map((p, i) => <BlogCard key={p.id} post={p} index={i} />)
-                )}
-              </div>
-            </div>
-          </div>
-
-          <aside className="blog-sidebar" aria-label="Blog sidebar">
-            <NewsletterCard />
-
-            <div className="sidebar-card">
-              <div className="sidebar-card__title">📂 Categories</div>
-              <div className="sidebar-categories" role="list" aria-label="Article categories">
-                {ALL_CATEGORIES.filter((c) => c !== 'All').map((cat) => (
-                  <button
-                    key={cat}
-                    className="sidebar-cat"
-                    type="button"
-                    onClick={() => selectCategory(cat)}
-                    aria-label={`Filter: ${cat} (${categoryCounts[cat]} articles)`}
-                  >
-                    <span>{cat}</span>
-                    <span className="sidebar-cat__count">{categoryCounts[cat]}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="sidebar-card">
-              <div className="sidebar-card__title">🔥 Popular Posts</div>
-              <div className="popular-posts">
-                {BLOG_POSTS.slice(0, 5).map((p, i) => (
-                  <a href="blog-post.html" className="popular-post" key={p.id} aria-label={`Read: ${p.title}`}>
-                    <span className="popular-post__num">0{i + 1}</span>
-                    <div>
-                      <div className="popular-post__title">{p.title}</div>
-                      <div className="popular-post__meta">⏱ {p.readTime} read</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="sidebar-card">
-              <div className="sidebar-card__title">🏷️ Tags</div>
-              <div className="tags-cloud" role="list" aria-label="Article tags">
-                {allTags.map((t) => (
-                  <span
-                    className="badge"
-                    role="button"
-                    tabIndex="0"
-                    key={t}
-                    onClick={() => onTagClick(t)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') onTagClick(t)
-                    }}
-                    aria-label={`Filter by tag: ${t}`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
+      </section>
     </>
   )
 }

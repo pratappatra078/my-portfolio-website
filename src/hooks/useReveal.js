@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 /**
  * Adds the `revealed` class to an element when it scrolls into view.
@@ -66,27 +66,4 @@ export function useReveal(defaultDirection = 'reveal') {
   const ref = useRef(null)
   useRevealObserver(ref)
   return ref
-}
-
-export function useActiveSection() {
-  const [active, setActive] = useState('home')
-  const ids = ['home', 'about', 'skills', 'work', 'experience', 'contact']
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { rootMargin: '-40% 0px -55% 0px' },
-    )
-    ids.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [])
-
-  return active
 }

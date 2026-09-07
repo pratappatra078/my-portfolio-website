@@ -1,58 +1,26 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function NotFound() {
-  const [seconds, setSeconds] = useState(10)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSeconds((s) => (s <= 1 ? 0 : s - 1))
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
-
-  useEffect(() => {
-    if (seconds <= 0) window.location.replace('#/')
-  }, [seconds])
-
   return (
-    <main className="page-404" id="main-content">
-      <div className="page-404__blobs" aria-hidden="true">
-        <div className="page-404__blob page-404__blob--1" />
-        <div className="page-404__blob page-404__blob--2" />
+    <section className="flex min-h-[70vh] items-center justify-center px-6 pb-20 pt-[84px]">
+      <div className="text-center">
+        <p className="font-heading text-8xl font-extrabold tracking-tight text-accent dark:text-accent-dark">
+          404
+        </p>
+        <h1 className="mt-4 font-heading text-2xl font-bold text-ink dark:text-ink-dark">
+          This page doesn't exist.
+        </h1>
+        <p className="mx-auto mt-3 max-w-sm text-base text-ink-2 dark:text-ink-2-dark">
+          The link may be broken, or the page may have moved. Let's get you back home.
+        </p>
+        <Link
+          to="/"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-[0.95rem] font-semibold text-white shadow-[0_6px_18px_rgba(249,95,15,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(249,95,15,0.4)]"
+        >
+          Back to home
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Link>
       </div>
-
-      <div className="page-404__content">
-        <div className="page-404__code" aria-label="404 error">404</div>
-        <span className="page-404__emoji" aria-hidden="true">🌌</span>
-        <h1 className="page-404__title">Oops! Page Not Found</h1>
-        <p className="page-404__desc">
-          The page you're looking for seems to have wandered off into the void. It might have been
-          moved, deleted, or never existed in the first place.
-        </p>
-
-        <div className="page-404__actions">
-          <Link to="/" className="btn btn--primary btn--lg" aria-label="Go back home">
-            🏠 Back to Home
-          </Link>
-          <button onClick={() => window.history.back()} className="btn btn--outline btn--lg" aria-label="Go back to previous page">
-            ← Go Back
-          </button>
-        </div>
-
-        <p style={{ fontSize: '0.82rem', color: 'var(--color-text-3)', marginBottom: 'var(--sp-4)' }}>
-          Or try one of these pages:
-        </p>
-        <div className="page-404__suggestions">
-          <Link to="/projects" className="suggestion-link" aria-label="View projects">💻 Projects</Link>
-          <Link to="/blog" className="suggestion-link" aria-label="Read blog">📝 Blog</Link>
-          <Link to="/about" className="suggestion-link" aria-label="About me">👤 About Me</Link>
-        </div>
-
-        <p className="page-404__countdown">
-          Redirecting to home in <span id="countdown-num">{seconds}</span> seconds...
-        </p>
-      </div>
-    </main>
+    </section>
   )
 }
